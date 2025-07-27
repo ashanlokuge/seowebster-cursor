@@ -1,0 +1,140 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: "Technical SEO",
+    description: "Optimize website structure and performance for faster loading and better crawlability.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+    </svg>`
+  },
+  {
+    title: "On-Page SEO",
+    description: "Improve content, meta tags, headers, and internal links for search engine visibility.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>`
+  },
+  {
+    title: "Off-Page SEO",
+    description: "Build high-quality backlinks to increase your domain authority and trustworthiness.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+    </svg>`
+  },
+  {
+    title: "Local SEO",
+    description: "Get discovered by nearby customers with Google Business optimization and local strategies.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>`
+  },
+  {
+    title: "Keyword Research",
+    description: "Find low-competition, high-conversion keywords tailored to your niche.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>`
+  },
+  {
+    title: "Content Optimization",
+    description: "Create or refine SEO-driven content that ranks and converts users into leads.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>`
+  },
+  {
+    title: "Site Audit",
+    description: "Full analysis of your website's health, speed, indexing issues, and opportunities.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+    </svg>`
+  },
+  {
+    title: "SEO Consultation",
+    description: "Work with SEO experts to build a strategy aligned with your business goals.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+    </svg>`
+  }
+];
+---
+
+<section class="bg-[#F9FAFB] py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#272d3e] mb-4 leading-tight">
+        What We Offer
+      </h2>
+      <p class="text-lg lg:text-xl text-[#6B7280] max-w-2xl mx-auto">
+        Full-suite SEO services designed to grow your business.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service, index) => (
+        <div class="group bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#ff6400] hover:border-opacity-20 hover:-translate-y-1">
+          <!-- Icon -->
+          <div class="w-12 h-12 bg-gradient-to-br from-[#ff6400] to-[#e55a00] rounded-lg flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Fragment set:html={service.icon} />
+          </div>
+          
+          <!-- Content -->
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-[#ff6400] mb-3 group-hover:text-[#e55a00] transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p class="text-[#6B7280] text-base lg:text-lg leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12 lg:mt-16">
+      <div class="bg-gradient-to-r from-[#ff6400] to-[#e55a00] rounded-2xl p-8 lg:p-10 shadow-xl">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Ready to boost your rankings?
+        </h3>
+        <p class="text-white text-opacity-90 text-lg mb-6 max-w-2xl mx-auto">
+          Let's discuss how our comprehensive SEO services can transform your online presence and drive real results.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contact" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-[#ff6400] font-semibold rounded-lg hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-md"
+          >
+            Get Free Consultation
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a 
+            href="/services" 
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#ff6400] transform transition-all duration-200"
+          >
+            View All Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom hover effects for better performance */
+  .group:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .group * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style> 

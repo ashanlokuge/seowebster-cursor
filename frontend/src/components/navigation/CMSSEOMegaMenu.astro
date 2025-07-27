@@ -1,0 +1,398 @@
+---
+// CMS SEO Mega Menu Component - Modern Design with Overlay
+// Responsive 4-column layout with professional styling
+
+const cmsCategories = [
+  {
+    title: "E-commerce Platforms",
+    subtitle: "Optimize your online store for better search visibility",
+    services: [
+      { name: "Shopify SEO", url: "/cms-seo/shopify-seo" },
+      { name: "WooCommerce SEO", url: "/cms-seo/woocommerce-seo" },
+      { name: "Magento SEO", url: "/cms-seo/magento-seo" },
+      { name: "BigCommerce SEO", url: "/cms-seo/bigcommerce-seo" },
+      { name: "Etsy SEO", url: "/cms-seo/etsy-seo" },
+      { name: "PrestaShop SEO", url: "/cms-seo/prestashop-seo" }
+    ]
+  },
+  {
+    title: "Website Builders",
+    subtitle: "SEO optimization for drag-and-drop website platforms",
+    services: [
+      { name: "WordPress SEO", url: "/cms-seo/wordpress-seo" },
+      { name: "Webflow SEO", url: "/cms-seo/webflow-seo" },
+      { name: "Squarespace SEO", url: "/cms-seo/squarespace-seo" },
+      { name: "Weebly SEO", url: "/cms-seo/weebly-seo" },
+      { name: "GoDaddy SEO", url: "/cms-seo/godaddy-seo" },
+      { name: "Wix SEO", url: "/cms-seo/wix-seo" }
+    ]
+  },
+  {
+    title: "Design & Development",
+    subtitle: "SEO for modern design and development platforms",
+    services: [
+      { name: "Framer SEO", url: "/cms-seo/framer-seo" },
+      { name: "Figma SEO", url: "/cms-seo/figma-seo" },
+      { name: "Editor X SEO", url: "/cms-seo/editor-x-seo" },
+      { name: "Bubble SEO", url: "/cms-seo/bubble-seo" },
+      { name: "Shopline SEO", url: "/cms-seo/shopline-seo" },
+      { name: "Carrd SEO", url: "/cms-seo/carrd-seo" }
+    ]
+  },
+  {
+    title: "Enterprise & CMS",
+    subtitle: "Advanced SEO for enterprise content management systems",
+    services: [
+      { name: "Drupal SEO", url: "/cms-seo/drupal-seo" },
+      { name: "Joomla SEO", url: "/cms-seo/joomla-seo" },
+      { name: "Sitecore SEO", url: "/cms-seo/sitecore-seo" },
+      { name: "HubSpot SEO", url: "/cms-seo/hubspot-seo" },
+      { name: "Ghost SEO", url: "/cms-seo/ghost-seo" },
+      { name: "Contentful SEO", url: "/cms-seo/contentful-seo" }
+    ]
+  }
+];
+---
+
+<!-- Background Overlay for Focus Effect -->
+<div class="cms-mega-menu-overlay fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-[998] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out"></div>
+
+<!-- CMS SEO Mega Menu Container - Perfectly centered relative to viewport -->
+<div class="cms-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white z-[1000] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out" style="top: calc(64px + 20px); width: min(90vw, 1200px); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px;">
+  
+  <!-- Desktop 4-Column Grid Layout -->
+  <div class="hidden lg:grid grid-cols-4 gap-8">
+    
+    <!-- Columns 1-3: CMS Categories -->
+    {cmsCategories.slice(0, 3).map((category) => (
+      <div class="cms-category">
+        <!-- Category Header -->
+        <h3 class="text-xl font-bold mb-3" style="color: #ff6400;">
+          {category.title}
+        </h3>
+        <p class="text-sm mb-6 leading-relaxed" style="color: #6B7280;">
+          {category.subtitle}
+        </p>
+        
+        <!-- Services List -->
+        <nav class="space-y-3">
+          {category.services.map((service) => (
+            <a 
+              href={service.url}
+              class="block text-base transition-colors duration-200 hover:underline"
+              style="color: #272d3e;"
+              onmouseover="this.style.color='#ff6400'"
+              onmouseout="this.style.color='#272d3e'"
+            >
+              {service.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    ))}
+    
+    <!-- Column 4: Call-to-Action Section -->
+    <div class="cms-cta-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl border border-orange-200">
+      <!-- Icon -->
+      <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background-color: #ff6400;">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      
+      <!-- Content -->
+      <h4 class="text-xl font-bold text-center mb-3" style="color: #ff6400;">
+        Free SEO Audit
+      </h4>
+      <p class="text-sm text-center mb-6 leading-relaxed" style="color: #6B7280;">
+        Get a comprehensive analysis of your CMS website's SEO performance and discover optimization opportunities.
+      </p>
+      
+      <!-- CTA Button -->
+      <a 
+        href="/free-seo-audit" 
+        class="block w-full text-center text-white text-sm font-semibold py-3 px-4 rounded-lg transition-all duration-200 hover:shadow-lg transform hover:scale-105"
+        style="background-color: #ff6400;"
+        onmouseover="this.style.backgroundColor='#e55a00'"
+        onmouseout="this.style.backgroundColor='#ff6400'"
+      >
+        Get Free Audit
+      </a>
+      
+      <!-- Additional Info -->
+      <p class="text-xs text-center mt-3" style="color: #6B7280;">
+        No credit card required • 5-minute setup
+      </p>
+    </div>
+    
+  </div>
+  
+  <!-- Tablet 2-Column Layout -->
+  <div class="hidden md:grid lg:hidden grid-cols-2 gap-8">
+    {cmsCategories.map((category) => (
+      <div class="cms-category">
+        <h3 class="text-lg font-bold mb-2" style="color: #ff6400;">
+          {category.title}
+        </h3>
+        <p class="text-sm mb-4" style="color: #6B7280;">
+          {category.subtitle}
+        </p>
+        <nav class="space-y-2">
+          {category.services.map((service) => (
+            <a 
+              href={service.url}
+              class="block text-sm transition-colors duration-200 hover:underline"
+              style="color: #272d3e;"
+              onmouseover="this.style.color='#ff6400'"
+              onmouseout="this.style.color='#272d3e'"
+            >
+              {service.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    ))}
+    
+    <!-- CTA Section for Tablet -->
+    <div class="col-span-2 mt-6 p-6 rounded-xl text-center" style="background-color: #fff3ea; border: 1px solid #fed7aa;">
+      <h4 class="text-lg font-bold mb-2" style="color: #ff6400;">Free SEO Audit</h4>
+      <p class="text-sm mb-4" style="color: #6B7280;">Get your comprehensive SEO analysis</p>
+      <a 
+        href="/free-seo-audit" 
+        class="inline-block text-white text-sm font-semibold py-2 px-6 rounded-lg transition-all duration-200"
+        style="background-color: #ff6400;"
+      >
+        Get Started
+      </a>
+    </div>
+  </div>
+  
+  <!-- Mobile Accordion Layout -->
+  <div class="md:hidden space-y-4">
+    {cmsCategories.map((category, categoryIndex) => (
+      <div class="cms-mobile-category border rounded-lg overflow-hidden" style="border-color: #E5E7EB;">
+        <button 
+          class="w-full text-left p-4 flex items-center justify-between accordion-toggle transition-colors duration-200"
+          style="background-color: #FFFFFF;"
+          onmouseover="this.style.backgroundColor='#F9FAFB'"
+          onmouseout="this.style.backgroundColor='#FFFFFF'"
+          data-target={`mobile-category-${categoryIndex}`}
+        >
+          <div>
+            <h3 class="text-base font-bold mb-1" style="color: #ff6400;">
+              {category.title}
+            </h3>
+            <p class="text-sm" style="color: #6B7280;">
+              {category.subtitle}
+            </p>
+          </div>
+          <svg class="w-5 h-5 transform transition-transform duration-200 flex-shrink-0" style="color: #6B7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div 
+          id={`mobile-category-${categoryIndex}`}
+          class="hidden px-4 pb-4 space-y-2"
+          style="background-color: #F9FAFB;"
+        >
+          {category.services.map((service) => (
+            <a 
+              href={service.url}
+              class="block text-sm py-1 transition-colors duration-200"
+              style="color: #272d3e;"
+              onmouseover="this.style.color='#ff6400'"
+              onmouseout="this.style.color='#272d3e'"
+            >
+              {service.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+    
+    <!-- Mobile CTA -->
+    <div class="mt-6 p-4 rounded-lg text-center" style="background-color: #fff3ea; border: 1px solid #fed7aa;">
+      <h4 class="text-lg font-bold mb-2" style="color: #ff6400;">Free SEO Audit</h4>
+      <p class="text-sm mb-4" style="color: #6B7280;">Get your comprehensive analysis</p>
+      <a 
+        href="/free-seo-audit" 
+        class="inline-block text-white text-sm font-semibold py-3 px-6 rounded-lg transition-all duration-200"
+        style="background-color: #ff6400;"
+      >
+        Get Started
+      </a>
+    </div>
+  </div>
+  
+  </div>
+</div>
+
+<script>
+  // Enhanced mobile accordion functionality with improved hover behavior
+  document.addEventListener('DOMContentLoaded', function() {
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    const megaMenuContainer = document.querySelector('.cms-mega-menu');
+    const megaMenuOverlay = document.querySelector('.cms-mega-menu-overlay');
+    const navbarTrigger = document.querySelector('.group'); // The navbar trigger element
+    
+    // Mobile accordion functionality
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-target');
+        const targetContent = document.getElementById(targetId);
+        const arrow = this.querySelector('svg');
+        
+        if (targetContent) {
+          const isHidden = targetContent.classList.contains('hidden');
+          
+          // Close all other accordions first
+          accordionToggles.forEach(otherToggle => {
+            const otherId = otherToggle.getAttribute('data-target');
+            const otherContent = document.getElementById(otherId);
+            const otherArrow = otherToggle.querySelector('svg');
+            if (otherContent && otherId !== targetId) {
+              otherContent.classList.add('hidden');
+              if (otherArrow) {
+                otherArrow.classList.remove('rotate-180');
+              }
+            }
+          });
+          
+          // Toggle current accordion
+          if (isHidden) {
+            targetContent.classList.remove('hidden');
+            if (arrow) {
+              arrow.classList.add('rotate-180');
+            }
+          } else {
+            targetContent.classList.add('hidden');
+            if (arrow) {
+              arrow.classList.remove('rotate-180');
+            }
+          }
+        }
+      });
+    });
+
+    // Improved hover behavior - prevent immediate disappearance
+    let hideTimeout;
+    
+    // Function to hide mega menu
+    function hideMegaMenu() {
+      if (megaMenuContainer) {
+        megaMenuContainer.classList.add('invisible', 'opacity-0');
+        megaMenuContainer.classList.remove('visible', 'opacity-100');
+      }
+      if (megaMenuOverlay) {
+        megaMenuOverlay.classList.add('invisible', 'opacity-0');
+        megaMenuOverlay.classList.remove('visible', 'opacity-100');
+      }
+    }
+    
+    // Function to show mega menu
+    function showMegaMenu() {
+      clearTimeout(hideTimeout);
+      if (megaMenuContainer) {
+        megaMenuContainer.classList.remove('invisible', 'opacity-0');
+        megaMenuContainer.classList.add('visible', 'opacity-100');
+      }
+      if (megaMenuOverlay) {
+        megaMenuOverlay.classList.remove('invisible', 'opacity-0');
+        megaMenuOverlay.classList.add('visible', 'opacity-100');
+      }
+    }
+    
+    // Add mouseleave event to the entire mega menu container
+    if (megaMenuContainer) {
+      megaMenuContainer.addEventListener('mouseleave', function() {
+        hideTimeout = setTimeout(hideMegaMenu, 150); // Small delay to prevent flickering
+      });
+      
+      megaMenuContainer.addEventListener('mouseenter', function() {
+        clearTimeout(hideTimeout);
+      });
+    }
+    
+    // Add mouseleave event to the overlay
+    if (megaMenuOverlay) {
+      megaMenuOverlay.addEventListener('mouseleave', function() {
+        hideTimeout = setTimeout(hideMegaMenu, 150);
+      });
+      
+      megaMenuOverlay.addEventListener('mouseenter', function() {
+        clearTimeout(hideTimeout);
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Ensure proper container width and centering */
+  .w-\[1000px\] {
+    width: 1000px;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 640px) {
+    .w-\[1000px\] {
+      width: 100%;
+      max-width: calc(100vw - 2rem);
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .w-\[1000px\] {
+      width: 100%;
+      max-width: calc(100vw - 3rem);
+    }
+  }
+  
+  /* Prevent text wrapping and ensure proper spacing */
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  
+  /* Enhanced hover effects */
+  a:hover {
+    text-decoration-color: #ff6400;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  
+  /* Smooth accordion animations */
+  .accordion-toggle svg {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .accordion-toggle svg.rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  /* Grid item spacing optimization */
+  .grid-cols-4 > * {
+    min-width: 0; /* Prevent flex overflow */
+  }
+  
+  /* Ensure proper line height and spacing */
+  .leading-6 {
+    line-height: 1.5rem;
+  }
+  
+  .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  
+  /* Ensure mega menu stays above other content */
+  .cms-mega-menu {
+    position: fixed !important;
+    z-index: 1000 !important;
+  }
+  
+  /* Ensure overlay is properly positioned */
+  .cms-mega-menu-overlay {
+    position: fixed !important;
+    z-index: 998 !important;
+  }
+</style>

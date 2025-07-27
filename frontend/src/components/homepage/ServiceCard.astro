@@ -1,0 +1,52 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+const { icon, title, description, link } = Astro.props;
+
+// Determine if the icon is an emoji (starts with a unicode character) or an image URL
+const isEmoji = /^\p{Extended_Pictographic}/u.test(icon);
+---
+
+<div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300 ease-in-out flex flex-col h-full">
+  <div class="flex justify-center items-center mb-6">
+    {isEmoji ? (
+      <span class="text-4xl">{icon}</span>
+    ) : (
+      <img src={icon} alt={title} class="w-16 h-16 object-contain" />
+    )}
+  </div>
+
+  <h3 class="text-orange-600 text-xl font-bold mb-3 text-center">
+    {title}
+  </h3>
+
+  <p class="text-gray-600 text-center mb-6 flex-grow">
+    {description}
+  </p>
+
+  <div class="text-center mt-auto">
+    <a 
+      href={link}
+      class="inline-flex items-center text-blue-900 hover:text-orange-600 font-semibold transition-colors duration-200"
+    >
+      Learn More
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" 
+        viewBox="0 0 20 20" 
+        fill="currentColor"
+      >
+        <path 
+          fill-rule="evenodd" 
+          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+          clip-rule="evenodd" 
+        />
+      </svg>
+    </a>
+  </div>
+</div> 

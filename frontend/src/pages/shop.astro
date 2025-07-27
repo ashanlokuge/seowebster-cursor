@@ -1,0 +1,62 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'shop');
+if (!page) {
+  throw new Error('Shop page content not found');
+}
+
+const { hero, products, cta_section } = page.data;
+
+interface Product {
+  title: string;
+  icon: string;
+  color: string;
+  description: string;
+  price: number;
+}
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">{hero?.title}</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          {hero?.description}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products?.map((product: Product) => (
+          <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+            <div class={`bg-gradient-to-br from-${product.color}-500 to-${product.color}-600 h-48 flex items-center justify-center`}>
+              <span class="text-6xl text-white">{product.icon}</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{product.title}</h3>
+              <p class="text-gray-600 mb-4">{product.description}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-blue-600">${product.price}</span>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-16">
+        <p class="text-gray-600 mb-6">{cta_section?.title}</p>
+        <a 
+          href={cta_section?.button?.link} 
+          class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+        >
+          {cta_section?.button?.text}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout> 
