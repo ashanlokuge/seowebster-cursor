@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="60" fill="white" rx="8"/>
+  <rect x="10" y="15" width="100" height="30" fill="#1E3A8A" rx="4" opacity="0.1"/>
+  <text x="60" y="35" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="14" font-weight="bold">GLOBAL</text>
+</svg> 

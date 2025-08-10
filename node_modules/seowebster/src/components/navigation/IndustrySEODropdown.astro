@@ -1,0 +1,166 @@
+---
+// Industry SEO Dropdown Component
+// Clean, responsive dropdown with hover/click functionality
+
+const industryServices = [
+  { name: "YOUTUBE SEO", url: "/industry-seo/youtube-seo" },
+  { name: "MOBILE APP SEO", url: "/industry-seo/mobile-app-seo" },
+  { name: "SMALL BUSINESS SEO", url: "/industry-seo/small-business-seo" },
+  { name: "REAL ESTATE SEO", url: "/industry-seo/real-estate-seo" },
+  { name: "CRYPTO SEO", url: "/industry-seo/crypto-seo" }
+];
+---
+
+<!-- Industry SEO Dropdown Container -->
+<div class="industry-seo-dropdown relative group">
+  
+  <!-- Desktop Dropdown (Hidden on Mobile) -->
+  <div class="hidden lg:block">
+    <!-- Trigger Button -->
+    <button class="text-gray-700 hover:text-[#ff6200] text-sm font-medium transition-colors duration-200 flex items-center group-hover:text-[#ff6200]">
+      Industry SEO
+      <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    
+    <!-- Dropdown Menu -->
+    <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out z-[1000]">
+      
+      <!-- Triangle Pointer -->
+      <div class="relative">
+        <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-white"></div>
+        <div class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-200"></div>
+      </div>
+      
+      <!-- Menu Container -->
+      <div class="bg-white rounded-[10px] shadow-[0px_8px_20px_rgba(0,0,0,0.08)] border border-gray-200 min-w-[200px] max-w-[240px] py-2">
+        <nav class="space-y-0">
+          {industryServices.map((service) => (
+            <a 
+              href={service.url}
+              class="block px-4 py-3 text-[14px] font-medium text-[#272d3e] uppercase tracking-wide transition-all duration-200 hover:bg-[#F9FAFB] hover:text-[#ff6400] first:rounded-t-[10px] last:rounded-b-[10px]"
+            >
+              {service.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Dropdown (Hidden on Desktop) -->
+  <div class="lg:hidden">
+    <!-- Mobile Toggle Button -->
+    <button 
+      class="mobile-industry-toggle w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#ff6200] hover:bg-gray-50 rounded-md transition-colors duration-200 flex items-center justify-between"
+      aria-expanded="false"
+      aria-controls="mobile-industry-menu"
+    >
+      Industry SEO
+      <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    
+    <!-- Mobile Menu Items -->
+    <div 
+      id="mobile-industry-menu"
+      class="hidden pl-6 space-y-0 bg-gray-50 rounded-md mt-1"
+    >
+      {industryServices.map((service) => (
+        <a 
+          href={service.url}
+          class="block px-3 py-3 text-sm text-gray-600 hover:text-[#ff6200] rounded-md transition-colors duration-200 min-h-[48px] flex items-center"
+        >
+          {service.name}
+        </a>
+      ))}
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  // Mobile dropdown functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-industry-toggle');
+    const mobileMenu = document.getElementById('mobile-industry-menu');
+    
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const arrow = this.querySelector('svg');
+        
+        // Toggle menu visibility
+        if (isExpanded) {
+          mobileMenu.classList.add('hidden');
+          this.setAttribute('aria-expanded', 'false');
+          if (arrow) {
+            arrow.classList.remove('rotate-180');
+          }
+        } else {
+          mobileMenu.classList.remove('hidden');
+          this.setAttribute('aria-expanded', 'true');
+          if (arrow) {
+            arrow.classList.add('rotate-180');
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Ensure proper z-index and positioning */
+  .industry-seo-dropdown {
+    position: relative;
+  }
+  
+  /* Desktop dropdown positioning */
+  .industry-seo-dropdown .absolute {
+    position: absolute;
+  }
+  
+  /* Smooth transitions */
+  .industry-seo-dropdown .transition-all {
+    transition: all 0.2s ease-out;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 1023px) {
+    .industry-seo-dropdown .lg\:block {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .industry-seo-dropdown .lg\:hidden {
+      display: none;
+    }
+  }
+  
+  /* Ensure proper spacing and touch targets on mobile */
+  @media (max-width: 1023px) {
+    .industry-seo-dropdown a,
+    .industry-seo-dropdown button {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  /* Hover effects for desktop */
+  @media (min-width: 1024px) {
+    .industry-seo-dropdown a:hover {
+      background-color: #F9FAFB;
+    }
+  }
+  
+  /* Focus states for accessibility */
+  .industry-seo-dropdown a:focus,
+  .industry-seo-dropdown button:focus {
+    outline: 2px solid #ff6400;
+    outline-offset: 2px;
+  }
+</style> 
