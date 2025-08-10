@@ -88,9 +88,9 @@ const reasons = [
     <!-- Reasons Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {reasons.map((reason, index) => (
-        <div class="group bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#ff6400]/20 hover:-translate-y-1 cursor-pointer">
+        <div class="group bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#ff6400]/20 hover:-translate-y-1 cursor-pointer text-center">
           <!-- Icon -->
-          <div class={`w-16 h-16 ${reason.iconBg} ${reason.iconColor} ${reason.hoverBg} ${reason.hoverColor} rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 shadow-sm`}>
+          <div class={`w-16 h-16 ${reason.iconBg} ${reason.iconColor} ${reason.hoverBg} ${reason.hoverColor} rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300 group-hover:scale-110 shadow-sm`}>
             <Fragment set:html={reason.icon} />
           </div>
           

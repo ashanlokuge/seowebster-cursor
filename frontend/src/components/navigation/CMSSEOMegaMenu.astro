@@ -55,10 +55,10 @@ const cmsCategories = [
 ---
 
 <!-- Background Overlay for Focus Effect -->
-<div class="cms-mega-menu-overlay fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-[998] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out"></div>
+<div class="cms-mega-menu-overlay fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-[998] opacity-0 invisible transition-all duration-300 ease-out"></div>
 
 <!-- CMS SEO Mega Menu Container - Perfectly centered relative to viewport -->
-<div class="cms-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white z-[1000] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out" style="top: calc(64px + 20px); width: min(90vw, 1200px); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px;">
+<div class="cms-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white z-[1000] opacity-0 invisible transition-all duration-300 ease-out" style="top: calc(64px + 20px); width: min(90vw, 1200px); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px;">
   
   <!-- Desktop 4-Column Grid Layout -->
   <div class="hidden lg:grid grid-cols-4 gap-8">
@@ -224,7 +224,6 @@ const cmsCategories = [
     </div>
   </div>
   
-  </div>
 </div>
 
 <script>
@@ -275,8 +274,14 @@ const cmsCategories = [
       });
     });
 
-    // Improved hover behavior - prevent immediate disappearance
+    // Enhanced hover behavior - proper show/hide functionality
     let hideTimeout;
+    
+    // Find the CMS SEO dropdown trigger in the navbar
+    const cmsDropdownTrigger = document.querySelector('div.relative.group:nth-child(2)') || // Second dropdown in navbar
+                              Array.from(document.querySelectorAll('button')).find(btn => 
+                                btn.textContent.trim().includes('CMS SEO')) ||
+                              document.querySelector('.group button:contains("CMS SEO")');
     
     // Function to hide mega menu
     function hideMegaMenu() {
@@ -303,27 +308,71 @@ const cmsCategories = [
       }
     }
     
-    // Add mouseleave event to the entire mega menu container
-    if (megaMenuContainer) {
-      megaMenuContainer.addEventListener('mouseleave', function() {
-        hideTimeout = setTimeout(hideMegaMenu, 150); // Small delay to prevent flickering
+    // Add hover events to the dropdown trigger (CMS SEO button)
+    if (cmsDropdownTrigger) {
+      cmsDropdownTrigger.addEventListener('mouseenter', function() {
+        clearTimeout(hideTimeout);
+        showMegaMenu();
       });
       
-      megaMenuContainer.addEventListener('mouseenter', function() {
-        clearTimeout(hideTimeout);
+      cmsDropdownTrigger.addEventListener('mouseleave', function() {
+        hideTimeout = setTimeout(hideMegaMenu, 200); // Delay to allow moving to menu
       });
     }
     
-    // Add mouseleave event to the overlay
-    if (megaMenuOverlay) {
-      megaMenuOverlay.addEventListener('mouseleave', function() {
-        hideTimeout = setTimeout(hideMegaMenu, 150);
-      });
-      
-      megaMenuOverlay.addEventListener('mouseenter', function() {
+    // Add hover events to the mega menu container
+    if (megaMenuContainer) {
+      megaMenuContainer.addEventListener('mouseenter', function() {
         clearTimeout(hideTimeout);
       });
+      
+      megaMenuContainer.addEventListener('mouseleave', function() {
+        hideMegaMenu(); // Immediate hide when leaving menu
+      });
     }
+    
+    // Add hover events to the overlay
+    if (megaMenuOverlay) {
+      megaMenuOverlay.addEventListener('mouseleave', function() {
+        hideMegaMenu(); // Immediate hide when leaving overlay
+      });
+    }
+    
+    // Hide mega menu when clicking outside or moving mouse away
+    document.addEventListener('click', function(event) {
+      if (megaMenuContainer && 
+          !megaMenuContainer.contains(event.target) && 
+          !cmsDropdownTrigger?.contains(event.target)) {
+        hideMegaMenu();
+      }
+    });
+    
+    // Global mouse move listener to hide menu when mouse is far away
+    document.addEventListener('mousemove', function(event) {
+      if (megaMenuContainer && !megaMenuContainer.classList.contains('invisible')) {
+        const menuRect = megaMenuContainer.getBoundingClientRect();
+        const triggerRect = cmsDropdownTrigger?.getBoundingClientRect();
+        
+        // Check if mouse is far from both menu and trigger
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        const isNearMenu = mouseX >= menuRect.left - 50 && 
+                          mouseX <= menuRect.right + 50 && 
+                          mouseY >= menuRect.top - 50 && 
+                          mouseY <= menuRect.bottom + 50;
+        
+        const isNearTrigger = triggerRect && 
+                             mouseX >= triggerRect.left - 20 && 
+                             mouseX <= triggerRect.right + 20 && 
+                             mouseY >= triggerRect.top - 20 && 
+                             mouseY <= triggerRect.bottom + 20;
+        
+        if (!isNearMenu && !isNearTrigger) {
+          hideMegaMenu();
+        }
+      }
+    });
   });
 </script>
 
