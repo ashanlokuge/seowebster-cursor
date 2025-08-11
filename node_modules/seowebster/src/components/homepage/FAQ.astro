@@ -117,10 +117,13 @@ const faqs = [
 
 <script>
   // Global function to toggle FAQ
-  window.toggleFAQ = function(index) {
-    const button = document.querySelector(`[onclick="toggleFAQ(${index})"]`);
-    const answer = document.getElementById(`faq-answer-${index}`);
-    const icon = button.querySelector('.faq-icon');
+  (window as any).toggleFAQ = function(index: number) {
+    const button = document.querySelector(`[onclick="toggleFAQ(${index})"]`) as HTMLElement;
+    const answer = document.getElementById(`faq-answer-${index}`) as HTMLElement;
+    const icon = button?.querySelector('.faq-icon') as HTMLElement;
+    
+    if (!button || !answer || !icon) return;
+    
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
     
     // Toggle current FAQ
@@ -146,12 +149,16 @@ const faqs = [
     // All FAQs start collapsed
     const faqButtons = document.querySelectorAll('[onclick^="toggleFAQ"]');
     faqButtons.forEach((button, index) => {
-      button.setAttribute('aria-expanded', 'false');
-      const answer = document.getElementById(`faq-answer-${index}`);
-      answer.style.maxHeight = '0px';
-      answer.style.opacity = '0';
-      answer.style.paddingTop = '0px';
-      answer.style.paddingBottom = '0px';
+      if (button instanceof HTMLElement) {
+        button.setAttribute('aria-expanded', 'false');
+        const answer = document.getElementById(`faq-answer-${index}`);
+        if (answer instanceof HTMLElement) {
+          answer.style.maxHeight = '0px';
+          answer.style.opacity = '0';
+          answer.style.paddingTop = '0px';
+          answer.style.paddingBottom = '0px';
+        }
+      }
     });
   });
 </script>

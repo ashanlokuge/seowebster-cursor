@@ -186,39 +186,44 @@ import IndustrySEODropdown from './IndustrySEODropdown.astro';
         
         // Toggle hamburger icon
         const svg = this.querySelector('svg');
-        if (mobileMenu.classList.contains('hidden')) {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-        } else {
-          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+        if (svg) {
+          if (mobileMenu.classList.contains('hidden')) {
+            svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+          } else {
+            svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+          }
         }
       });
     }
 
     // Mobile dropdown functionality
     mobileDropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        const targetId = this.getAttribute('data-target');
-        const targetMenu = document.getElementById(targetId);
-        const arrow = this.querySelector('svg');
-        
-        if (targetMenu) {
-          targetMenu.classList.toggle('hidden');
-          arrow.classList.toggle('rotate-180');
-        }
-      });
+              toggle.addEventListener('click', function(this: HTMLElement) {
+          const targetId = this.getAttribute('data-target');
+          if (targetId) {
+            const targetMenu = document.getElementById(targetId);
+            const arrow = this.querySelector('svg');
+            
+            if (targetMenu && arrow) {
+              targetMenu.classList.toggle('hidden');
+              arrow.classList.toggle('rotate-180');
+            }
+          }
+        });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-      if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+      if (mobileMenu && !mobileMenu.contains(event.target as Node) && !mobileMenuButton?.contains(event.target as Node)) {
         mobileMenu.classList.add('hidden');
-        const svg = mobileMenuButton.querySelector('svg');
-        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+        const svg = mobileMenuButton?.querySelector('svg');
+        if (svg) {
+          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+        }
       }
     });
 
     // Sticky navbar scroll effect
-    let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       
@@ -231,8 +236,6 @@ import IndustrySEODropdown from './IndustrySEODropdown.astro';
           navbar.classList.remove('shadow-lg');
           navbar.classList.add('shadow-sm');
         }
-        
-        lastScrollTop = scrollTop;
       }
     });
   });

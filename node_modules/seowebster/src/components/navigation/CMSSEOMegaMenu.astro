@@ -101,129 +101,51 @@ const cmsCategories = [
       </div>
       
       <!-- Content -->
-      <h4 class="text-xl font-bold text-center mb-3" style="color: #ff6400;">
-        Free SEO Audit
-      </h4>
-      <p class="text-sm text-center mb-6 leading-relaxed" style="color: #6B7280;">
-        Get a comprehensive analysis of your CMS website's SEO performance and discover optimization opportunities.
-      </p>
+      <h4 class="text-lg font-semibold mb-2 text-gray-900">Get Expert CMS SEO Help</h4>
+      <p class="text-sm text-gray-600 mb-4">Our specialists know every platform inside and out.</p>
       
       <!-- CTA Button -->
-      <a 
-        href="/free-seo-audit" 
-        class="block w-full text-center text-white text-sm font-semibold py-3 px-4 rounded-lg transition-all duration-200 hover:shadow-lg transform hover:scale-105"
-        style="background-color: #ff6400;"
-        onmouseover="this.style.backgroundColor='#e55a00'"
-        onmouseout="this.style.backgroundColor='#ff6400'"
-      >
-        Get Free Audit
-      </a>
-      
-      <!-- Additional Info -->
-      <p class="text-xs text-center mt-3" style="color: #6B7280;">
-        No credit card required • 5-minute setup
-      </p>
-    </div>
-    
-  </div>
-  
-  <!-- Tablet 2-Column Layout -->
-  <div class="hidden md:grid lg:hidden grid-cols-2 gap-8">
-    {cmsCategories.map((category) => (
-      <div class="cms-category">
-        <h3 class="text-lg font-bold mb-2" style="color: #ff6400;">
-          {category.title}
-        </h3>
-        <p class="text-sm mb-4" style="color: #6B7280;">
-          {category.subtitle}
-        </p>
-        <nav class="space-y-2">
-          {category.services.map((service) => (
-            <a 
-              href={service.url}
-              class="block text-sm transition-colors duration-200 hover:underline"
-              style="color: #272d3e;"
-              onmouseover="this.style.color='#ff6400'"
-              onmouseout="this.style.color='#272d3e'"
-            >
-              {service.name}
-            </a>
-          ))}
-        </nav>
-      </div>
-    ))}
-    
-    <!-- CTA Section for Tablet -->
-    <div class="col-span-2 mt-6 p-6 rounded-xl text-center" style="background-color: #fff3ea; border: 1px solid #fed7aa;">
-      <h4 class="text-lg font-bold mb-2" style="color: #ff6400;">Free SEO Audit</h4>
-      <p class="text-sm mb-4" style="color: #6B7280;">Get your comprehensive SEO analysis</p>
-      <a 
-        href="/free-seo-audit" 
-        class="inline-block text-white text-sm font-semibold py-2 px-6 rounded-lg transition-all duration-200"
-        style="background-color: #ff6400;"
-      >
-        Get Started
+      <a href="/contact" class="inline-flex items-center justify-center w-full px-4 py-2 bg-[#ff6400] text-white text-sm font-medium rounded-lg hover:bg-[#e55a00] transition-colors duration-200">
+        Get Free Consultation
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
     </div>
   </div>
-  
+
   <!-- Mobile Accordion Layout -->
-  <div class="md:hidden space-y-4">
-    {cmsCategories.map((category, categoryIndex) => (
-      <div class="cms-mobile-category border rounded-lg overflow-hidden" style="border-color: #E5E7EB;">
+  <div class="lg:hidden space-y-4">
+    {cmsCategories.map((category, index) => (
+      <div class="cms-accordion">
         <button 
-          class="w-full text-left p-4 flex items-center justify-between accordion-toggle transition-colors duration-200"
-          style="background-color: #FFFFFF;"
-          onmouseover="this.style.backgroundColor='#F9FAFB'"
-          onmouseout="this.style.backgroundColor='#FFFFFF'"
-          data-target={`mobile-category-${categoryIndex}`}
+          class="accordion-toggle w-full flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+          data-target={`cms-accordion-${index}`}
         >
-          <div>
-            <h3 class="text-base font-bold mb-1" style="color: #ff6400;">
-              {category.title}
-            </h3>
-            <p class="text-sm" style="color: #6B7280;">
-              {category.subtitle}
-            </p>
+          <div class="text-left">
+            <h3 class="font-semibold text-gray-900">{category.title}</h3>
+            <p class="text-sm text-gray-600 mt-1">{category.subtitle}</p>
           </div>
-          <svg class="w-5 h-5 transform transition-transform duration-200 flex-shrink-0" style="color: #6B7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div 
-          id={`mobile-category-${categoryIndex}`}
-          class="hidden px-4 pb-4 space-y-2"
-          style="background-color: #F9FAFB;"
-        >
-          {category.services.map((service) => (
-            <a 
-              href={service.url}
-              class="block text-sm py-1 transition-colors duration-200"
-              style="color: #272d3e;"
-              onmouseover="this.style.color='#ff6400'"
-              onmouseout="this.style.color='#272d3e'"
-            >
-              {service.name}
-            </a>
-          ))}
+        
+        <div id={`cms-accordion-${index}`} class="hidden pl-4 pr-4 pb-4">
+          <nav class="space-y-2">
+            {category.services.map((service) => (
+              <a 
+                href={service.url}
+                class="block py-2 text-base text-gray-700 hover:text-[#ff6400] transition-colors duration-200"
+              >
+                {service.name}
+              </a>
+            ))}
+          </nav>
         </div>
       </div>
     ))}
-    
-    <!-- Mobile CTA -->
-    <div class="mt-6 p-4 rounded-lg text-center" style="background-color: #fff3ea; border: 1px solid #fed7aa;">
-      <h4 class="text-lg font-bold mb-2" style="color: #ff6400;">Free SEO Audit</h4>
-      <p class="text-sm mb-4" style="color: #6B7280;">Get your comprehensive analysis</p>
-      <a 
-        href="/free-seo-audit" 
-        class="inline-block text-white text-sm font-semibold py-3 px-6 rounded-lg transition-all duration-200"
-        style="background-color: #ff6400;"
-      >
-        Get Started
-      </a>
-    </div>
   </div>
-  
 </div>
 
 <script>
@@ -232,42 +154,45 @@ const cmsCategories = [
     const accordionToggles = document.querySelectorAll('.accordion-toggle');
     const megaMenuContainer = document.querySelector('.cms-mega-menu');
     const megaMenuOverlay = document.querySelector('.cms-mega-menu-overlay');
-    const navbarTrigger = document.querySelector('.group'); // The navbar trigger element
     
     // Mobile accordion functionality
     accordionToggles.forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
+      toggle.addEventListener('click', function(this: HTMLElement, e) {
         e.preventDefault();
         const targetId = this.getAttribute('data-target');
-        const targetContent = document.getElementById(targetId);
-        const arrow = this.querySelector('svg');
-        
-        if (targetContent) {
-          const isHidden = targetContent.classList.contains('hidden');
+        if (targetId) {
+          const targetContent = document.getElementById(targetId);
+          const arrow = this.querySelector('svg');
           
-          // Close all other accordions first
-          accordionToggles.forEach(otherToggle => {
-            const otherId = otherToggle.getAttribute('data-target');
-            const otherContent = document.getElementById(otherId);
-            const otherArrow = otherToggle.querySelector('svg');
-            if (otherContent && otherId !== targetId) {
-              otherContent.classList.add('hidden');
-              if (otherArrow) {
-                otherArrow.classList.remove('rotate-180');
+          if (targetContent) {
+            const isHidden = targetContent.classList.contains('hidden');
+            
+            // Close all other accordions first
+            accordionToggles.forEach(otherToggle => {
+              const otherId = otherToggle.getAttribute('data-target');
+              if (otherId) {
+                const otherContent = document.getElementById(otherId);
+                const otherArrow = otherToggle.querySelector('svg');
+                if (otherContent && otherId !== targetId) {
+                  otherContent.classList.add('hidden');
+                  if (otherArrow) {
+                    otherArrow.classList.remove('rotate-180');
+                  }
+                }
               }
-            }
-          });
-          
-          // Toggle current accordion
-          if (isHidden) {
-            targetContent.classList.remove('hidden');
-            if (arrow) {
-              arrow.classList.add('rotate-180');
-            }
-          } else {
-            targetContent.classList.add('hidden');
-            if (arrow) {
-              arrow.classList.remove('rotate-180');
+            });
+            
+            // Toggle current accordion
+            if (isHidden) {
+              targetContent.classList.remove('hidden');
+              if (arrow) {
+                arrow.classList.add('rotate-180');
+              }
+            } else {
+              targetContent.classList.add('hidden');
+              if (arrow) {
+                arrow.classList.remove('rotate-180');
+              }
             }
           }
         }
@@ -275,12 +200,12 @@ const cmsCategories = [
     });
 
     // Enhanced hover behavior - proper show/hide functionality
-    let hideTimeout;
+    let hideTimeout: number;
     
     // Find the CMS SEO dropdown trigger in the navbar
     const cmsDropdownTrigger = document.querySelector('div.relative.group:nth-child(2)') || // Second dropdown in navbar
                               Array.from(document.querySelectorAll('button')).find(btn => 
-                                btn.textContent.trim().includes('CMS SEO')) ||
+                                btn.textContent?.trim().includes('CMS SEO')) ||
                               document.querySelector('.group button:contains("CMS SEO")');
     
     // Function to hide mega menu
@@ -341,8 +266,8 @@ const cmsCategories = [
     // Hide mega menu when clicking outside or moving mouse away
     document.addEventListener('click', function(event) {
       if (megaMenuContainer && 
-          !megaMenuContainer.contains(event.target) && 
-          !cmsDropdownTrigger?.contains(event.target)) {
+          !megaMenuContainer.contains(event.target as Node) && 
+          !cmsDropdownTrigger?.contains(event.target as Node)) {
         hideMegaMenu();
       }
     });

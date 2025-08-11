@@ -88,7 +88,7 @@ const industryServices = [
     const mobileMenu = document.getElementById('mobile-industry-menu');
     
     if (mobileToggle && mobileMenu) {
-      mobileToggle.addEventListener('click', function() {
+      mobileToggle.addEventListener('click', function(this: HTMLElement) {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         const arrow = this.querySelector('svg');
         

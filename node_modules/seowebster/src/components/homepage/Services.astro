@@ -1,6 +1,4 @@
 ---
-import ServiceCard from './ServiceCard.astro';
-
 const services = [
   {
     title: "Technical SEO",
@@ -107,7 +105,7 @@ const services = [
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-      {services.map((service, index) => (
+      {services.map((service) => (
         <div class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#ff6400]/20 text-center">
           <!-- Icon -->
           <div class="w-12 h-12 bg-gradient-to-br from-[#ff6400] to-[#e55a00] rounded-lg flex items-center justify-center text-white mb-5 mx-auto group-hover:scale-110 transition-transform duration-300">

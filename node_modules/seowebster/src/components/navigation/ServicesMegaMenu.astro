@@ -301,7 +301,7 @@ const categoryData = {
     const megaMenuContainer = document.querySelector('.services-mega-menu');
     const megaMenuOverlay = document.querySelector('.services-mega-menu-overlay');
     
-    function switchTab(category) {
+    function switchTab(category: string) {
       // Update active tab styling with SEOWebster primary color
       tabButtons.forEach(btn => {
         btn.classList.remove('active', 'text-[#ff6400]', 'bg-gray-50');
@@ -326,10 +326,12 @@ const categoryData = {
       
       // Smooth transition for service cards
       serviceCards.forEach(cards => {
-        cards.style.opacity = '0';
-        setTimeout(() => {
-          cards.classList.add('hidden');
-        }, 100);
+        if (cards instanceof HTMLElement) {
+          cards.style.opacity = '0';
+          setTimeout(() => {
+            cards.classList.add('hidden');
+          }, 100);
+        }
       });
       
       setTimeout(() => {
@@ -342,10 +344,12 @@ const categoryData = {
       
       // Smooth transition for category descriptions
       categoryDescriptions.forEach(desc => {
-        desc.style.opacity = '0';
-        setTimeout(() => {
-          desc.classList.add('hidden');
-        }, 100);
+        if (desc instanceof HTMLElement) {
+          desc.style.opacity = '0';
+          setTimeout(() => {
+            desc.classList.add('hidden');
+          }, 100);
+        }
       });
       
       setTimeout(() => {
@@ -359,25 +363,29 @@ const categoryData = {
     
     tabButtons.forEach(button => {
       // Click functionality
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(this: HTMLElement) {
         const category = this.getAttribute('data-category');
-        switchTab(category);
+        if (category) {
+          switchTab(category);
+        }
       });
       
       // Hover functionality for better UX
-      button.addEventListener('mouseenter', function() {
+      button.addEventListener('mouseenter', function(this: HTMLElement) {
         const category = this.getAttribute('data-category');
-        switchTab(category);
+        if (category) {
+          switchTab(category);
+        }
       });
     });
 
     // Enhanced hover behavior - proper show/hide functionality
-    let hideTimeout;
+    let hideTimeout: number;
     
     // Find the Services dropdown trigger in the navbar
     const servicesDropdownTrigger = document.querySelector('div.relative.group:nth-child(1)') || // First dropdown in navbar
                                     Array.from(document.querySelectorAll('button')).find(btn => 
-                                      btn.textContent.trim().includes('Services')) ||
+                                      btn.textContent?.trim().includes('Services')) ||
                                     document.querySelector('.group button:contains("Services")');
     
     // Function to hide mega menu
@@ -438,8 +446,8 @@ const categoryData = {
     // Hide mega menu when clicking outside or moving mouse away
     document.addEventListener('click', function(event) {
       if (megaMenuContainer && 
-          !megaMenuContainer.contains(event.target) && 
-          !servicesDropdownTrigger?.contains(event.target)) {
+          !megaMenuContainer.contains(event.target as Node) && 
+          !servicesDropdownTrigger?.contains(event.target as Node)) {
         hideMegaMenu();
       }
     });
