@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20.19.4'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Clean dependencies
         working-directory: frontend
@@ -31,15 +31,15 @@ jobs:
           rm -f package-lock.json
           rm -f yarn.lock
           
-      - name: Install with yarn
+      - name: Install dependencies
         working-directory: frontend
         run: |
-          yarn install --frozen-lockfile
-          yarn add @rollup/rollup-linux-x64-gnu
+          npm install
+          npm install @rollup/rollup-linux-x64-gnu --platform=linux --arch=x64
 
       - name: Build
         working-directory: frontend
-        run: yarn build
+        run: npm run build
 
       - name: Add CNAME
         run: echo "seowebster.com" > frontend/dist/CNAME
