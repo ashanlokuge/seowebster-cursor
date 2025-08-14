@@ -165,6 +165,79 @@ import IndustrySEODropdown from './IndustrySEODropdown.astro';
 </nav>
 
 <script>
+  // Global Mega Menu Manager - prevents conflicts between menus
+  interface MegaMenuManager {
+    currentMenu: string | null;
+    showMenu: (menuName: string) => void;
+    hideMenu: (menuName: string) => void;
+    hideAllMenus: () => void;
+  }
+
+  declare global {
+    interface Window {
+      MegaMenuManager: MegaMenuManager;
+    }
+  }
+
+  window.MegaMenuManager = {
+    currentMenu: null,
+    
+    showMenu: function(menuName: string) {
+      this.hideAllMenus();
+      this.currentMenu = menuName;
+      
+      // Add a small delay to ensure previous menu is hidden
+      setTimeout(() => {
+        const menu = document.querySelector(`.${menuName}-mega-menu`);
+        const overlay = document.querySelector(`.${menuName}-mega-menu-overlay`);
+        
+        if (menu) {
+          menu.classList.remove('invisible', 'opacity-0');
+          menu.classList.add('visible', 'opacity-100');
+        }
+        if (overlay) {
+          overlay.classList.remove('invisible', 'opacity-0');
+          overlay.classList.add('visible', 'opacity-100');
+        }
+      }, 50);
+    },
+    
+    hideMenu: function(menuName: string) {
+      if (this.currentMenu === menuName) {
+        this.currentMenu = null;
+      }
+      
+      const menu = document.querySelector(`.${menuName}-mega-menu`);
+      const overlay = document.querySelector(`.${menuName}-mega-menu-overlay`);
+      
+      if (menu) {
+        menu.classList.add('invisible', 'opacity-0');
+        menu.classList.remove('visible', 'opacity-100');
+      }
+      if (overlay) {
+        overlay.classList.add('invisible', 'opacity-0');
+        overlay.classList.remove('visible', 'opacity-100');
+      }
+    },
+    
+    hideAllMenus: function() {
+      const allMenus = document.querySelectorAll('[class*="-mega-menu"]:not([class*="overlay"])');
+      const allOverlays = document.querySelectorAll('[class*="-mega-menu-overlay"]');
+      
+      allMenus.forEach(menu => {
+        menu.classList.add('invisible', 'opacity-0');
+        menu.classList.remove('visible', 'opacity-100');
+      });
+      
+      allOverlays.forEach(overlay => {
+        overlay.classList.add('invisible', 'opacity-0');
+        overlay.classList.remove('visible', 'opacity-100');
+      });
+      
+      this.currentMenu = null;
+    }
+  };
+
   // Mobile menu functionality
   document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
