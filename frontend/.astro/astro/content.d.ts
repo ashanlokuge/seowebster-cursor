@@ -205,6 +205,13 @@ declare module 'astro:content' {
   collection: "services";
   data: InferEntrySchema<"services">
 } & { render(): Render[".md"] };
+"saas-seo.md": {
+	id: "saas-seo.md";
+  slug: "saas-seo";
+  body: string;
+  collection: "services";
+  data: InferEntrySchema<"services">
+} & { render(): Render[".md"] };
 "services.md": {
 	id: "services.md";
   slug: "services";
@@ -222,5 +229,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.js");
+	export type ContentConfig = typeof import("../../src/content/config.js");
 }

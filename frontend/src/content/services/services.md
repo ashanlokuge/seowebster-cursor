@@ -29,6 +29,11 @@ category: "overview"
 - **Description**: Import the Entire Site Visual Builder for Elementor.
 - **Link**: /services/local-seo
 
+### SaaS SEO
+- **Icon**: 💻
+- **Description**: Specialized B2B SaaS SEO services targeting enterprise keywords and conversion optimization.
+- **Link**: /saas-seo
+
 ### SEO Consultation
 - **Icon**: 💬
 - **Description**: Expert consulting and planning for scalable organic growth.
