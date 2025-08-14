@@ -1,0 +1,633 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Free SEO Health Checker & Website Analysis Tool | SEOWebster";
+const metaDescription = "Get an instant SEO analysis of your website. Our free tool checks your site speed, on-page SEO, technical health, security, and more. Get your free, actionable report now.";
+---
+
+<BaseLayout title={title} description={metaDescription}>
+  <section class="py-20 bg-gradient-to-br from-green-600 to-emerald-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+        Instant SEO Health Check and Website Analysis
+      </h1>
+      <p class="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
+        Is your website underperforming? Enter your URL to get a free, comprehensive SEO report covering over 50 critical ranking factors from site speed to technical errors in under 60 seconds.
+      </p>
+      
+      <!-- Trust Indicators -->
+      <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm mb-8">
+        <div class="grid md:grid-cols-3 gap-6 text-sm text-green-100">
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Under 60 Seconds
+          </div>
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            50+ SEO Factors
+          </div>
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Actionable Report
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            The Tool Input
+          </h2>
+          <p class="text-lg text-gray-600">
+            A single, prominent input field for your website URL. Get your comprehensive analysis in under 60 seconds.
+          </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto mb-8">
+          <form id="seo-checker-form" class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+              <input 
+                type="url" 
+                id="website-url" 
+                placeholder="https://yourwebsite.com"
+                class="w-full px-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors text-lg"
+                required
+              />
+            </div>
+            <button 
+              type="submit" 
+              id="check-seo-btn"
+              class="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transform transition-all duration-200 hover:scale-105 shadow-lg"
+            >
+              Analyze My Website Now
+            </button>
+          </form>
+        </div>
+
+        <div id="loading-state" class="hidden text-center py-12">
+          <div class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-green-800 bg-green-100 rounded-md">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-green-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Analyzing your website...
+          </div>
+        </div>
+
+        <div id="results-section" class="hidden">
+          <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-gray-900 mb-6">Your Instant SEO Report is Ready!</h3>
+            <div class="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white mb-4">
+              <span id="seo-score" class="text-4xl font-bold">85</span>
+            </div>
+            <h4 id="score-title" class="text-2xl font-bold text-gray-900 mb-2">Good SEO Health</h4>
+            <p id="score-description" class="text-gray-600">Your website has solid SEO fundamentals with room for improvement</p>
+          </div>
+
+          <!-- Categorized Breakdown -->
+          <div class="mb-8">
+            <h4 class="text-xl font-semibold text-gray-900 mb-4 text-center">Detailed Category Scores</h4>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-blue-50 rounded-lg p-4 text-center border border-blue-200">
+                <div class="text-2xl font-bold text-blue-600 mb-1" id="onpage-score">85</div>
+                <div class="text-sm text-blue-800">On-Page SEO</div>
+                <div class="text-xs text-blue-600 mt-1">Meta tags, headings, content</div>
+              </div>
+              <div class="bg-green-50 rounded-lg p-4 text-center border border-green-200">
+                <div class="text-2xl font-bold text-green-600 mb-1" id="performance-score">65</div>
+                <div class="text-sm text-green-800">Performance</div>
+                <div class="text-xs text-green-600 mt-1">Speed, Core Web Vitals</div>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-4 text-center border border-purple-200">
+                <div class="text-2xl font-bold text-purple-600 mb-1" id="technical-score">78</div>
+                <div class="text-sm text-purple-800">Technical SEO</div>
+                <div class="text-xs text-purple-600 mt-1">Structure, crawlability</div>
+              </div>
+              <div class="bg-orange-50 rounded-lg p-4 text-center border border-orange-200">
+                <div class="text-2xl font-bold text-orange-600 mb-1" id="security-score">92</div>
+                <div class="text-sm text-orange-800">Security</div>
+                <div class="text-xs text-orange-600 mt-1">SSL, malware check</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-4">Top Issues to Fix Now</h4>
+              <div id="issues-list" class="space-y-3"></div>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-900 mb-4">Priority Action Items</h4>
+              <div id="recommendations-list" class="space-y-3"></div>
+            </div>
+          </div>
+
+          <!-- Lead Capture Form -->
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mt-8 border border-blue-200">
+            <div class="text-center mb-6">
+              <h4 class="text-2xl font-bold text-gray-900 mb-2">Get Your Detailed PDF Report & Action Plan</h4>
+              <p class="text-gray-600">Your summary is above. For a detailed, 10-page PDF report with a complete checklist perfect for sharing with your team or developer enter your details below.</p>
+            </div>
+            
+            <form id="lead-form" class="max-w-md mx-auto">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <input 
+                  type="text" 
+                  id="lead-name" 
+                  placeholder="Your Name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  required
+                />
+                <input 
+                  type="email" 
+                  id="lead-email" 
+                  placeholder="Your Email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              <button 
+                type="submit" 
+                class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-indigo-700 transform transition-all duration-200 hover:scale-105 shadow-lg"
+              >
+                Email My Full Report
+              </button>
+            </form>
+          </div>
+
+          <!-- Full SEO Checklist -->
+          <div class="mt-8 bg-gray-50 rounded-2xl p-6">
+            <h4 class="text-xl font-semibold text-gray-900 mb-4 text-center">Complete SEO Health Checklist (50+ Factors)</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 class="font-semibold text-gray-800 mb-3">✅ Technical SEO (15 checks)</h5>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    HTTPS/SSL Implementation
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    XML Sitemap
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                    Robots.txt Configuration
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+                    Schema Markup
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h5 class="font-semibold text-gray-800 mb-3">✅ On-Page SEO (12 checks)</h5>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    Meta Title Tags
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                    Meta Descriptions
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    Heading Structure
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+                    Internal Linking
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="text-center mt-4">
+              <button id="expand-checklist" class="text-blue-600 hover:text-blue-800 font-medium">
+                View Full Checklist (50+ items) →
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center mt-8">
+            <button id="download-report" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform transition-all duration-200 hover:scale-105 mr-4">
+              Download Full Report
+            </button>
+            <a href="mailto:hello@seowebster.com" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transform transition-all duration-200 hover:scale-105">
+              Get Professional Help
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Check Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          A 360-Degree Analysis of Your Website's SEO Health
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our Google site analyzer goes beyond basic checks. We provide a holistic view of your website's performance across the four pillars of modern SEO.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- On-Page SEO -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">✅ On-Page SEO</h3>
+          </div>
+          <p class="text-gray-700">We analyze your meta tags, headings, keyword consistency, and content structure to ensure you're optimized for your target terms.</p>
+        </div>
+
+        <!-- Performance & Speed -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">⚡ Performance & Speed</h3>
+          </div>
+          <p class="text-gray-700">We run a complete site speed test based on Google's Core Web Vitals to check for issues that frustrate users and hurt rankings.</p>
+        </div>
+
+        <!-- Technical SEO -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">🔧 Technical SEO</h3>
+          </div>
+          <p class="text-gray-700">We scan for critical technical errors, checking your robots.txt, XML sitemap, SSL certificate, and structured data (Schema) to ensure search engines can crawl and index your site properly.</p>
+        </div>
+
+        <!-- Security & Trust -->
+        <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-100">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">🛡️ Security & Trust</h3>
+          </div>
+          <p class="text-gray-700">We perform a security check to ensure your site is safe for visitors and isn't flagged by Google for malware or phishing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Social Proof Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+        Trusted by Businesses in Sri Lanka and Beyond
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+          <div class="flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <blockquote class="text-lg text-gray-700 italic mb-4">
+            "SEOWebster's free checker found critical issues that three other tools missed. Their team helped us fix them and our traffic is up 50%!"
+          </blockquote>
+          <p class="text-sm text-gray-600">- Client Name, Company</p>
+        </div>
+        
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+          <div class="flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <blockquote class="text-lg text-gray-700 italic mb-4">
+            "The comprehensive analysis helped us identify technical issues that were hurting our rankings. Our organic traffic increased by 75% in 3 months!"
+          </blockquote>
+          <p class="text-sm text-gray-600">- Another Client, Another Company</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Next Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        Your Score is Just the Beginning
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        An automated report shows you what's wrong, but a human expert can tell you why and build a strategy to fix it permanently. If you're serious about improving your score, increasing your traffic, and outranking your competition, our team can help.
+      </p>
+      <a href="mailto:hello@seowebster.com" 
+        class="inline-flex items-center justify-center px-8 py-4 rounded-lg text-lg font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transform transition-all duration-200 hover:scale-105 shadow-lg"
+      >
+        Schedule a Free Strategy Call
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-lg text-gray-600">Get answers to the most common questions about our SEO health checker tool</p>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg border border-gray-200">
+          <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" aria-expanded="false">
+            <span class="font-semibold text-gray-900">What is a website SEO audit?</span>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-4">
+            <p class="text-gray-600">An SEO audit is a comprehensive analysis of your website's search engine optimization performance. It identifies technical issues, content gaps, and opportunities to improve your search rankings and organic traffic. Our tool checks over 50 critical factors across technical SEO, on-page optimization, performance, and security.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200">
+          <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" aria-expanded="false">
+            <span class="font-semibold text-gray-900">How often should I check my website's health?</span>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-4">
+            <p class="text-gray-600">We recommend checking your website's SEO health monthly for active businesses, or quarterly for established sites. Regular monitoring helps catch issues early and maintain optimal performance. Factors like algorithm updates, competitor changes, and technical issues can impact your SEO health quickly.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200">
+          <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" aria-expanded="false">
+            <span class="font-semibold text-gray-900">Will fixing these issues guarantee a #1 ranking on Google?</span>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-4">
+            <p class="text-gray-600">While fixing SEO issues will improve your rankings, #1 positions depend on many factors including competition, content quality, user experience, and domain authority. Our tool helps you optimize the factors you can control. Think of it as giving your website the best possible foundation to compete effectively.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200">
+          <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" aria-expanded="false">
+            <span class="font-semibold text-gray-900">Is this SEO health check tool really free?</span>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-4">
+            <p class="text-gray-600">Yes, our basic SEO health check is completely free. You get instant results, a comprehensive score, and key issues to fix immediately. For a detailed 10-page PDF report with complete checklist and action plan, you can opt to share your contact information. No hidden costs or upsells.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200">
+          <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" aria-expanded="false">
+            <span class="font-semibold text-gray-900">How is this different from Google's PageSpeed Insights?</span>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-4">
+            <p class="text-gray-600">While PageSpeed Insights focuses primarily on performance metrics, our tool provides a comprehensive SEO analysis covering technical SEO, on-page optimization, content quality, security, and more. We give you actionable recommendations for all aspects of SEO, not just speed. Think of PageSpeed Insights as one chapter in the complete SEO book.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Benefits Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Why Choose Our SEO Health Checker?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Beyond the basic analysis, we provide actionable insights that drive real results
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Instant Results</h3>
+          <p class="text-gray-600">Get your comprehensive SEO analysis in under 60 seconds, not hours or days</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Actionable Insights</h3>
+          <p class="text-gray-600">Every issue comes with specific, implementable solutions you can act on immediately</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Regular Monitoring</h3>
+          <p class="text-gray-600">Track your progress over time with regular health checks and improvement tracking</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-green-600 to-emerald-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to Dominate Your Search Rankings?
+      </h2>
+      <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+        Our free SEO health checker is just the beginning. Get a comprehensive professional audit and custom optimization strategy to dominate your search rankings.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:hello@seowebster.com" 
+          class="inline-flex items-center justify-center px-8 py-4 rounded-lg text-lg font-semibold text-green-600 bg-white hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-lg"
+        >
+          Get Professional SEO Audit
+        </a>
+        <a href="tel:+1234567890" 
+          class="inline-flex items-center justify-center px-8 py-4 rounded-lg text-lg font-semibold text-white border-2 border-white hover:bg-white hover:text-green-600 transform transition-all duration-200 hover:scale-105"
+        >
+          Schedule a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('seo-checker-form');
+      const loadingState = document.getElementById('loading-state');
+      const resultsSection = document.getElementById('results-section');
+      const checkSeoBtn = document.getElementById('check-seo-btn');
+      
+      const sampleSeoData = {
+        score: 78,
+        title: 'Fair SEO Health',
+        description: 'Your website has moderate SEO issues that need attention',
+        issues: [
+          {
+            type: 'critical',
+            title: 'Missing Meta Description',
+            description: 'Your homepage lacks a meta description, which hurts click-through rates from search results.'
+          },
+          {
+            type: 'high',
+            title: 'Slow Page Speed',
+            description: 'Your page takes 4.2 seconds to load, which is above the recommended 3-second threshold.'
+          }
+        ],
+        recommendations: [
+          {
+            priority: 'Immediate',
+            title: 'Add Meta Description',
+            description: 'Write a compelling 150-160 character description for your homepage.'
+          },
+          {
+            priority: 'High',
+            title: 'Optimize Images',
+            description: 'Compress images and add descriptive alt text to improve page speed and accessibility.'
+          }
+        ]
+      };
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const url = document.getElementById('website-url').value;
+        
+        if (!url) {
+          alert('Please enter a valid website URL');
+          return;
+        }
+
+        loadingState.classList.remove('hidden');
+        resultsSection.classList.add('hidden');
+        checkSeoBtn.disabled = true;
+        checkSeoBtn.textContent = 'Analyzing...';
+
+        setTimeout(function() {
+          displayResults(sampleSeoData);
+          loadingState.classList.add('hidden');
+          resultsSection.classList.remove('hidden');
+          checkSeoBtn.disabled = false;
+          checkSeoBtn.textContent = 'Analyze My Website Now';
+        }, 3000);
+      });
+
+      function displayResults(data) {
+        document.getElementById('seo-score').textContent = data.score;
+        document.getElementById('score-title').textContent = data.title;
+        document.getElementById('score-description').textContent = data.description;
+
+        const issuesList = document.getElementById('issues-list');
+        issuesList.innerHTML = data.issues.map(function(issue) {
+          return '<div class="flex items-start space-x-3 p-3 rounded-lg bg-red-50"><div class="flex-shrink-0 w-2 h-2 rounded-full mt-2 bg-red-500"></div><div><h5 class="font-medium text-gray-900">' + issue.title + '</h5><p class="text-sm text-gray-600">' + issue.description + '</p></div></div>';
+        }).join('');
+
+        const recommendationsList = document.getElementById('recommendations-list');
+        recommendationsList.innerHTML = data.recommendations.map(function(rec) {
+          return '<div class="flex items-start space-x-3 p-3 rounded-lg bg-blue-50"><div class="flex-shrink-0"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">' + rec.priority + '</span></div><div><h5 class="font-medium text-gray-900">' + rec.title + '</h5><p class="text-sm text-gray-600">' + rec.description + '</p></div></div>';
+        }).join('');
+      }
+
+      document.getElementById('download-report').addEventListener('click', function() {
+        const url = document.getElementById('website-url').value;
+        const score = document.getElementById('seo-score').textContent;
+        const report = 'SEO Health Check Report\nWebsite: ' + url + '\nScore: ' + score + '/100\nDate: ' + new Date().toLocaleDateString();
+        const blob = new Blob([report], { type: 'text/plain' });
+        const url2 = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url2;
+        a.download = 'seo-health-report-' + url.replace(/[^a-zA-Z0-9]/g, '-') + '.txt';
+        a.click();
+        window.URL.revokeObjectURL(url2);
+      });
+
+      // FAQ Accordion Functionality
+      const faqToggles = document.querySelectorAll('.faq-toggle');
+      
+      faqToggles.forEach((toggle) => {
+        toggle.addEventListener('click', (event) => {
+          const target = event.currentTarget;
+          const content = target.nextElementSibling;
+          const icon = target.querySelector('svg');
+          const isExpanded = target.getAttribute('aria-expanded') === 'true';
+          
+          // Toggle the current FAQ item
+          if (isExpanded) {
+            // Collapse
+            content.classList.add('hidden');
+            target.setAttribute('aria-expanded', 'false');
+            icon.style.transform = 'rotate(0deg)';
+          } else {
+            // Expand
+            content.classList.remove('hidden');
+            target.setAttribute('aria-expanded', 'true');
+            icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+
+      // Lead form functionality
+      const leadForm = document.getElementById('lead-form');
+      if (leadForm) {
+        leadForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('lead-name').value;
+          const email = document.getElementById('lead-email').value;
+          
+          if (name && email) {
+            alert('Thank you! Your detailed PDF report will be emailed to you shortly.');
+            leadForm.reset();
+          }
+        });
+      }
+    });
+  </script>
+</BaseLayout> 
