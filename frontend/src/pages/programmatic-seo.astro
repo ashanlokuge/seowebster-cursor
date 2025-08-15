@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-blue-300 rounded-full opacity-60 animate-float" style="animation-delay: 1.5s;"></div>
       
       <!-- Subtle grid pattern overlay -->
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f3f4f6" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50/30 to-gray-100/30 opacity-30"></div>
     </div>
 
     <!-- Content Container -->
@@ -56,8 +56,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           
           <!-- Enhanced Main Heading & Description -->
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-black tracking-tight text-gray-900 mb-8 leading-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-black tracking-tight text-gray-900 mb-6 leading-tight">
             Programmatic SEO Service That Drives <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-pink-600 to-red-600">Unscalable Growth</span> </h1>
+          
+          <p class="text-lg sm:text-xl lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+            Unlock massive organic growth with our expert programmatic SEO services. We build data-driven content engines to capture thousands of long-tail keywords, driving qualified traffic and leads for your business in 2025.
+          </p>
           
           <!-- Enhanced Feature List -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-2xl mx-auto lg:mx-0">
