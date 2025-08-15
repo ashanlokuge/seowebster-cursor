@@ -12,11 +12,16 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Get the featured image URL for SEO meta tags
+const featuredImage = entry.data.featuredImage || '/images/seowebster-logo.svg';
+const fullImageUrl = new URL(featuredImage, Astro.site || 'https://localhost:4321').href;
 ---
 
 <BaseLayout 
   title={entry.data.title}
   description={entry.data.description}
+  ogImage={fullImageUrl}
 >
   <article class="py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +46,17 @@ const { Content } = await entry.render();
           ))}
         </div>
       </header>
+      
+      <!-- Featured Image -->
+      {entry.data.featuredImage && (
+        <div class="mb-12">
+          <img 
+            src={entry.data.featuredImage} 
+            alt={entry.data.title}
+            class="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl shadow-lg"
+          />
+        </div>
+      )}
       
       <div class="prose prose-lg prose-slate max-w-none mx-auto">
         <Content />
