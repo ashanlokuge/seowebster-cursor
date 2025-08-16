@@ -26,7 +26,7 @@ const coreServices = [
     title: "Local SEO",
     description: "Dominate local search results and attract nearby customers",
     icon: "📍",
-    link: "/services/local-seo"
+    link: "/services/industry-seo/local-seo"
   },
   {
     title: "Keyword Research",
@@ -60,19 +60,13 @@ const advancedServices = [
     title: "Programmatic SEO",
     description: "Scalable SEO using data-driven content generation",
     icon: "🤖",
-    link: "/services/programmatic-seo"
-  },
-  {
-    title: "AI-Powered SEO",
-    description: "Leverage artificial intelligence for advanced optimization",
-    icon: "🧠",
-    link: "/services/ai-seo"
+    link: "/services/advanced-seo/programmatic-seo"
   },
   {
     title: "E-commerce SEO",
     description: "Specialized optimization for online stores and marketplaces",
     icon: "🛒",
-    link: "/services/ecommerce-seo"
+    link: "/services/advanced-seo/ecommerce-seo"
   },
   {
     title: "Enterprise SEO",
@@ -103,6 +97,56 @@ const advancedServices = [
     description: "Implement structured data for rich search results",
     icon: "🏷️",
     link: "/services/schema-markup"
+  },
+  {
+    title: "Link Building",
+    description: "Build high-quality backlinks to boost domain authority",
+    icon: "🔗",
+    link: "/services/advanced-seo/link-building"
+  }
+];
+
+// Service data for AI SEO Services
+const aiSeoServices = [
+  {
+    title: "Generative Engine Optimization",
+    description: "Optimize for AI-powered search engines and answer platforms",
+    icon: "🧠",
+    link: "/services/advanced-seo/generative-engine-optimization"
+  },
+  {
+    title: "Google AI Overviews SEO",
+    description: "Get featured in Google's AI-generated search summaries",
+    icon: "🔍",
+    link: "/services/advanced-seo/google-ai-overviews-seo"
+  },
+  {
+    title: "Answer Engine Optimization",
+    description: "Optimize for AI answer engines and chatbots",
+    icon: "💬",
+    link: "/services/advanced-seo/answer-engine-optimization"
+  },
+  {
+    title: "AI SEO Automation",
+    description: "Leverage artificial intelligence for advanced optimization",
+    icon: "⚡",
+    link: "/services/industry-seo/ai-seo-automation"
+  }
+];
+
+// Service data for SEO Tools
+const seoToolsServices = [
+  {
+    title: "SEO ROI Calculator",
+    description: "Calculate your SEO return on investment with precision",
+    icon: "📊",
+    link: "/services/industry-seo/seo-roi-calculator"
+  },
+  {
+    title: "SEO Health Checker",
+    description: "Comprehensive SEO audit and health assessment tool",
+    icon: "🩺",
+    link: "/services/industry-seo/best-seo-health-checker"
   }
 ];
 
@@ -125,9 +169,31 @@ const categoryData = {
     image: "🚀",
     benefits: [
       "Enterprise-level optimization",
-      "AI-powered insights",
       "Scalable SEO strategies",
+      "International expansion",
       "Competitive advantage"
+    ]
+  },
+  aiseo: {
+    title: "AI SEO Services",
+    description: "Next-generation AI-powered SEO optimization for the future of search.",
+    image: "🤖",
+    benefits: [
+      "AI search optimization",
+      "Generative engine visibility",
+      "Voice search readiness",
+      "Future-proof strategies"
+    ]
+  },
+  tools: {
+    title: "SEO Tools",
+    description: "Professional SEO analysis and calculation tools for data-driven decisions.",
+    image: "🛠️",
+    benefits: [
+      "ROI calculation",
+      "Health assessment",
+      "Performance tracking",
+      "Actionable insights"
     ]
   }
 };
@@ -136,33 +202,99 @@ const categoryData = {
 <!-- Background Overlay for Focus Effect -->
 <div class="services-mega-menu-overlay fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-[1002] opacity-0 invisible transition-all duration-300 ease-out"></div>
 
-<!-- Mega Menu Container - Tab-based layout with CMS-style sizing -->
-<div class="services-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white shadow-xl z-[1003] opacity-0 invisible transition-all duration-200 ease-in-out" style="top: calc(64px + 20px); width: min(90vw, 1200px); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px;">
-  <div class="w-full py-6 min-h-[400px] bg-white rounded-12">
-    <div class="flex h-full">
+<!-- Mega Menu Container - Tab-based layout with enhanced styling -->
+<div class="services-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white shadow-2xl z-[1003] opacity-0 invisible transition-all duration-300 ease-out" style="top: calc(64px + 4px); width: min(99vw, 1400px); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 20px; backdrop-filter: blur(20px);">
+  <div class="w-full bg-white rounded-12 relative">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-[0.02] bg-gradient-to-br from-orange-500 to-red-500"></div>
+    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100/30 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full blur-2xl"></div>
+    <div class="flex">
       
-      <!-- Column 1: Navigation Categories (Left sidebar) - Tab buttons -->
-      <div class="w-[200px] border-r border-gray-100 px-4">
-        <div class="space-y-2">
-          <button 
-            class="w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#ff6400] bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl border border-orange-200 shadow-sm"
-            data-category="core"
-          >
+      <!-- Column 1: Navigation Categories (Left sidebar) - Enhanced Tab buttons -->
+      <div class="w-[210px] border-r border-gray-100/80 px-3 relative z-10 flex-shrink-0">
+        <!-- Header -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Service Categories</h3>
+          <p class="text-sm text-gray-500">Choose your SEO focus area</p>
+        </div>
+        
+        <div class="space-y-4">
+                      <button 
+              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#ff6400] bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200/60 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+              data-category="core"
+              aria-label="View Core SEO Services"
+            >
             <div class="flex items-center justify-between">
-              <span class="font-semibold font-sans text-sm">Core SEO Services</span>
-              <svg class="w-4 h-4 text-[#ff6400] transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center shadow-sm">
+                  <span class="text-white text-sm">🎯</span>
+                </div>
+                <div>
+                  <span class="font-semibold font-sans text-sm block">Core SEO </span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-[#ff6400] transform rotate-90 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </button>
+          
+                      <button 
+              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 tab-button text-[#272d3e] rounded-lg border border-transparent hover:border-gray-200/60 hover:shadow-md transform hover:-translate-y-0.5"
+              data-category="advanced"
+              aria-label="View Advanced SEO Services"
+            >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gray-500 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-orange-500 transition-colors duration-300">
+                  <span class="text-white text-sm">🚀</span>
+                </div>
+                <div>
+                  <span class="font-semibold font-sans text-sm block">Advanced SEO</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-orange-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
           </button>
           
           <button 
-            class="w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 tab-button text-[#272d3e] rounded-xl border border-transparent hover:border-gray-200"
-            data-category="advanced"
+            class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 tab-button text-[#272d3e] rounded-lg border border-transparent hover:border-gray-200/60 hover:shadow-md transform hover:-translate-y-0.5"
+            data-category="aiseo"
+            aria-label="View AI SEO Services"
           >
             <div class="flex items-center justify-between">
-              <span class="font-semibold font-sans text-sm">Advanced SEO Services</span>
-              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gray-500 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-orange-500 transition-colors duration-300">
+                  <span class="text-white text-sm">🤖</span>
+        </div>
+                <div>
+                  <span class="font-semibold font-sans text-sm block">AI SEO</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-orange-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </button>
+          
+          <button 
+            class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 tab-button text-[#272d3e] rounded-lg border border-transparent hover:border-gray-200/60 hover:shadow-md transform hover:-translate-y-0.5"
+            data-category="tools"
+            aria-label="View SEO Tools"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gray-500 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-orange-500 transition-colors duration-300">
+                  <span class="text-white text-sm">🛠️</span>
+                </div>
+                <div>
+                  <span class="font-semibold font-sans text-sm block">SEO Tools</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-orange-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
@@ -171,28 +303,45 @@ const categoryData = {
       </div>
       
       <!-- Enhanced divider with gradient -->
-      <div class="w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent mx-2"></div>
+      <div class="w-px bg-gradient-to-b from-transparent via-gray-200/60 to-transparent mx-2 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-200/30 to-transparent opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
+      </div>
       
       <!-- Column 2: Services Grid (Middle content) -->
-      <div class="w-[600px] px-6">
+      <div class="w-[740px] px-4 relative z-10 flex-shrink-0">
         <div class="service-cards" id="core-services">
-          <div class="grid grid-cols-2 gap-3">
+          <!-- Section Header -->
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">Core SEO Services</h3>
+            <p class="text-sm text-gray-600">Essential SEO services to build your foundation and drive organic growth</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
             {coreServices.map((service) => (
               <a 
                 href={service.link}
-                class="group p-4 rounded-lg border border-gray-100 bg-white hover:border-[#ff6400] hover:shadow-lg hover:shadow-orange-100/50 transition-all duration-300 transform hover:-translate-y-1"
+                class="group relative p-4 rounded-xl border border-gray-100/80 bg-white/80 backdrop-blur-sm hover:border-orange-200/80 hover:shadow-lg hover:shadow-orange-100/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-[1.01] overflow-hidden"
               >
-                <div class="flex items-start space-x-3">
-                  <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
-                    <span class="text-[#ff6400] text-lg">{service.icon}</span>
+                <!-- Hover gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div class="relative flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:scale-110 transition-all duration-300 border border-orange-200/50">
+                    <span class="text-orange-600 text-xl">{service.icon}</span>
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h4 class="font-bold text-[#272d3e] group-hover:text-[#ff6400] transition-colors duration-300 text-sm mb-1">
+                    <h4 class="font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300 text-base mb-2 leading-tight">
                       {service.title}
                     </h4>
-                    <p class="text-xs text-gray-600 leading-relaxed group-hover:text-gray-700">
+                    <p class="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700">
                       {service.description}
                     </p>
+                  </div>
+                  <!-- Arrow indicator -->
+                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
                   </div>
                 </div>
               </a>
@@ -201,23 +350,118 @@ const categoryData = {
         </div>
         
         <div class="service-cards hidden" id="advanced-services">
-          <div class="grid grid-cols-2 gap-3">
+          <!-- Section Header -->
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">Advanced SEO Services</h3>
+            <p class="text-sm text-gray-600">Cutting-edge SEO solutions for businesses ready to dominate their market</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
             {advancedServices.map((service) => (
               <a 
                 href={service.link}
-                class="group p-4 rounded-lg border border-gray-100 bg-white hover:border-[#ff6400] hover:shadow-lg hover:shadow-orange-100/50 transition-all duration-300 transform hover:-translate-y-1"
+                class="group relative p-5 rounded-2xl border border-gray-100/80 bg-white/80 backdrop-blur-sm hover:border-blue-200/80 hover:shadow-xl hover:shadow-blue-100/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
               >
-                <div class="flex items-start space-x-3">
-                  <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
-                    <span class="text-[#272d3e] text-lg">{service.icon}</span>
+                <!-- Hover gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div class="relative flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-100 group-hover:to-blue-200 transition-all duration-300 border border-gray-200/50 group-hover:border-blue-200/50">
+                    <span class="text-gray-700 group-hover:text-blue-600 text-xl transition-colors duration-300">{service.icon}</span>
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h4 class="font-bold text-[#272d3e] group-hover:text-[#ff6400] transition-colors duration-300 text-sm mb-1">
+                    <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 text-base mb-2 leading-tight">
                       {service.title}
                     </h4>
-                    <p class="text-xs text-gray-600 leading-relaxed group-hover:text-gray-700">
+                    <p class="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700">
                       {service.description}
                     </p>
+                  </div>
+                  <!-- Arrow indicator -->
+                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <div class="service-cards hidden" id="aiseo-services">
+          <!-- Section Header -->
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">AI SEO Services</h3>
+            <p class="text-sm text-gray-600">Next-generation AI-powered SEO optimization for the future of search</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            {aiSeoServices.map((service) => (
+              <a 
+                href={service.link}
+                class="group relative p-5 rounded-2xl border border-gray-100/80 bg-white/80 backdrop-blur-sm hover:border-purple-200/80 hover:shadow-xl hover:shadow-purple-100/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+              >
+                <!-- Hover gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div class="relative flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-purple-100 group-hover:to-purple-200 transition-all duration-300 border border-gray-200/50 group-hover:border-purple-200/50">
+                    <span class="text-gray-700 group-hover:text-purple-600 text-xl transition-colors duration-300">{service.icon}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300 text-base mb-2 leading-tight">
+                      {service.title}
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700">
+                      {service.description}
+                    </p>
+                  </div>
+                  <!-- Arrow indicator -->
+                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <div class="service-cards hidden" id="tools-services">
+          <!-- Section Header -->
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">SEO Tools</h3>
+            <p class="text-sm text-gray-600">Professional SEO analysis and calculation tools for data-driven decisions</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            {seoToolsServices.map((service) => (
+              <a 
+                href={service.link}
+                class="group relative p-5 rounded-2xl border border-gray-100/80 bg-white/80 backdrop-blur-sm hover:border-green-200/80 hover:shadow-xl hover:shadow-green-100/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+              >
+                <!-- Hover gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div class="relative flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-green-100 group-hover:to-green-200 transition-all duration-300 border border-gray-200/50 group-hover:border-green-200/50">
+                    <span class="text-gray-700 group-hover:text-green-600 text-xl transition-colors duration-300">{service.icon}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 text-base mb-2 leading-tight">
+                      {service.title}
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700">
+                      {service.description}
+                    </p>
+                  </div>
+                  <!-- Arrow indicator -->
+                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
                   </div>
                 </div>
               </a>
@@ -227,62 +471,188 @@ const categoryData = {
       </div>
       
       <!-- Enhanced divider with gradient -->
-      <div class="w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent mx-2"></div>
+      <div class="w-px bg-gradient-to-b from-transparent via-gray-200/60 to-transparent mx-2 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-200/30 to-transparent opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
+      </div>
       
-      <!-- Column 3: Visual Summary Panel (Right sidebar) -->
-      <div class="w-[320px] px-4">
+      <!-- Column 3: Enhanced Visual Summary Panel (Right sidebar) -->
+      <div class="w-[370px] px-3 relative z-10 flex-shrink-0 flex items-center">
         <div class="category-description" id="core-description">
-          <div class="bg-gradient-to-br from-orange-50 via-orange-50 to-orange-100 rounded-xl p-4 h-full border border-orange-200 shadow-sm">
+          <div class="relative bg-gradient-to-br from-orange-50 via-orange-50 to-orange-100 rounded-xl p-5 border border-orange-200/60 shadow-lg backdrop-blur-sm overflow-hidden flex flex-col justify-center items-center text-center">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-xl"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-orange-300/20 to-transparent rounded-full blur-lg"></div>
+            
             <!-- Featured Image/Icon -->
-            <div class="text-center mb-4">
-              <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-md border border-orange-100">
-                <span class="text-3xl">{categoryData.core.image}</span>
+            <div class="relative text-center mb-6">
+              <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-orange-200/50 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl">{categoryData.core.image}</span>
               </div>
-              <h3 class="text-lg font-bold text-[#272d3e] mb-2 font-sans">{categoryData.core.title}</h3>
-              <p class="text-xs text-gray-600 leading-relaxed">{categoryData.core.description}</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans">{categoryData.core.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{categoryData.core.description}</p>
             </div>
             
             <!-- Key Benefits Checklist -->
-            <div class="space-y-2">
-              <h4 class="font-semibold text-[#272d3e] text-sm mb-2">Key Benefits:</h4>
+            <div class="relative space-y-3">
+              <h4 class="font-bold text-gray-900 text-base mb-4 flex items-center">
+                <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                Key Benefits:
+              </h4>
               {categoryData.core.benefits.map((benefit) => (
-                <div class="flex items-center space-x-2">
-                  <div class="w-4 h-4 bg-[#ff6400] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center space-x-3 group">
+                  <div class="w-5 h-5 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:bg-orange-600 transition-all duration-300">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-xs text-[#272d3e] font-medium">{benefit}</span>
+                  <span class="text-sm text-gray-800 font-medium group-hover:text-orange-700 transition-colors duration-300">{benefit}</span>
                 </div>
               ))}
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-6 pt-4 border-t border-orange-200/50">
+              <a href="/contact" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center space-x-2">
+                <span>Get Started</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
         
         <div class="category-description hidden" id="advanced-description">
-          <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 rounded-xl p-4 h-full border border-gray-200 shadow-sm">
+          <div class="relative bg-gradient-to-br from-blue-50 via-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200/60 shadow-lg backdrop-blur-sm overflow-hidden flex flex-col justify-center items-center text-center">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-xl"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-300/20 to-transparent rounded-full blur-lg"></div>
+            
             <!-- Featured Image/Icon -->
-            <div class="text-center mb-4">
-              <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-md border border-gray-100">
-                <span class="text-3xl">{categoryData.advanced.image}</span>
+            <div class="relative text-center mb-6">
+              <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-blue-200/50 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl">{categoryData.advanced.image}</span>
               </div>
-              <h3 class="text-lg font-bold text-[#272d3e] mb-2 font-sans">{categoryData.advanced.title}</h3>
-              <p class="text-xs text-gray-600 leading-relaxed">{categoryData.advanced.description}</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans">{categoryData.advanced.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{categoryData.advanced.description}</p>
             </div>
             
             <!-- Key Benefits Checklist -->
-            <div class="space-y-2">
-              <h4 class="font-semibold text-[#272d3e] text-sm mb-2">Key Benefits:</h4>
+            <div class="relative space-y-3">
+              <h4 class="font-bold text-gray-900 text-base mb-4 flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                Key Benefits:
+              </h4>
               {categoryData.advanced.benefits.map((benefit) => (
-                <div class="flex items-center space-x-2">
-                  <div class="w-4 h-4 bg-[#ff6400] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center space-x-3 group">
+                  <div class="w-5 h-5 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-xs text-[#272d3e] font-medium">{benefit}</span>
+                  <span class="text-sm text-gray-800 font-medium group-hover:text-blue-700 transition-colors duration-300">{benefit}</span>
                 </div>
               ))}
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-6 pt-4 border-t border-blue-200/50">
+              <a href="/contact" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center space-x-2">
+                <span>Get Started</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+          </div>
+        </div>
+      </div>
+      
+        <div class="category-description hidden" id="aiseo-description">
+          <div class="relative bg-gradient-to-br from-purple-50 via-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200/60 shadow-lg backdrop-blur-sm overflow-hidden flex flex-col justify-center items-center text-center">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full blur-xl"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-purple-300/20 to-transparent rounded-full blur-lg"></div>
+            
+            <!-- Featured Image/Icon -->
+            <div class="relative text-center mb-6">
+              <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-purple-200/50 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl">{categoryData.aiseo.image}</span>
+    </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans">{categoryData.aiseo.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{categoryData.aiseo.description}</p>
+            </div>
+            
+            <!-- Key Benefits Checklist -->
+            <div class="relative space-y-3">
+              <h4 class="font-bold text-gray-900 text-base mb-4 flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                Key Benefits:
+              </h4>
+              {categoryData.aiseo.benefits.map((benefit) => (
+                <div class="flex items-center space-x-3 group">
+                  <div class="w-5 h-5 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:bg-purple-600 transition-all duration-300">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm text-gray-800 font-medium group-hover:text-purple-700 transition-colors duration-300">{benefit}</span>
+                </div>
+              ))}
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-6 pt-4 border-t border-purple-200/50">
+              <a href="/contact" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center space-x-2">
+                <span>Get Started</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="category-description hidden" id="tools-description">
+          <div class="relative bg-gradient-to-br from-green-50 via-green-50 to-green-100 rounded-2xl p-6 border border-green-200/60 shadow-lg backdrop-blur-sm overflow-hidden flex flex-col justify-center items-center text-center">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-200/30 to-transparent rounded-full blur-xl"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-green-300/20 to-transparent rounded-full blur-lg"></div>
+            
+            <!-- Featured Image/Icon -->
+            <div class="relative text-center mb-6">
+              <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-green-200/50 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl">{categoryData.tools.image}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans">{categoryData.tools.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{categoryData.tools.description}</p>
+            </div>
+            
+            <!-- Key Benefits Checklist -->
+            <div class="relative space-y-3">
+              <h4 class="font-bold text-gray-900 text-base mb-4 flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Key Benefits:
+              </h4>
+              {categoryData.tools.benefits.map((benefit) => (
+                <div class="flex items-center space-x-3 group">
+                  <div class="w-5 h-5 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:bg-green-600 transition-all duration-300">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm text-gray-800 font-medium group-hover:text-green-700 transition-colors duration-300">{benefit}</span>
+                </div>
+              ))}
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-6 pt-4 border-t border-green-200/50">
+              <a href="/contact" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center space-x-2">
+                <span>Get Started</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -301,25 +671,43 @@ const categoryData = {
     const megaMenuContainer = document.querySelector('.services-mega-menu');
     
     function switchTab(category: string) {
-      // Update active tab styling with SEOWebster primary color
+      // Update active tab styling with enhanced visual feedback
       tabButtons.forEach(btn => {
-        btn.classList.remove('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200', 'shadow-sm');
+        btn.classList.remove('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         btn.classList.add('text-[#272d3e]', 'border-transparent');
+        btn.setAttribute('aria-selected', 'false');
+        
+        const iconContainer = btn.querySelector('.w-8.h-8');
         const arrow = btn.querySelector('svg');
+        
+        if (iconContainer) {
+          iconContainer.classList.remove('bg-orange-500');
+          iconContainer.classList.add('bg-gray-500');
+        }
+        
         if (arrow) {
-          arrow.classList.remove('text-[#ff6400]', 'transform', 'rotate-90');
+          arrow.classList.remove('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
           arrow.classList.add('text-gray-400');
         }
       });
       
       const activeButton = document.querySelector(`[data-category="${category}"]`);
       if (activeButton) {
-        activeButton.classList.add('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200', 'shadow-sm');
+        activeButton.classList.add('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         activeButton.classList.remove('text-[#272d3e]', 'border-transparent');
+        activeButton.setAttribute('aria-selected', 'true');
+        
+        const iconContainer = activeButton.querySelector('.w-8.h-8');
         const activeArrow = activeButton.querySelector('svg');
+        
+        if (iconContainer) {
+          iconContainer.classList.remove('bg-gray-500');
+          iconContainer.classList.add('bg-orange-500');
+        }
+        
         if (activeArrow) {
           activeArrow.classList.remove('text-gray-400');
-          activeArrow.classList.add('text-[#ff6400]', 'transform', 'rotate-90');
+          activeArrow.classList.add('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
         }
       }
       
@@ -600,28 +988,52 @@ const categoryData = {
   
   /* Responsive design */
   @media (max-width: 768px) {
-    /* Show mobile accordion version and keep container responsive */
+    /* Mobile view - stack vertically and add scrolling */
     .services-mega-menu {
-      display: block;
-      width: calc(100vw - 2rem) !important;
-      padding: 1rem !important;
+      width: calc(100vw - 0.25rem) !important;
+      padding: 0.75rem 0.75rem 0rem 0.75rem !important;
       left: 50%;
       transform: translateX(-50%);
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    /* Tablet view - convert to accordion style */
-    .services-mega-menu {
-      max-width: 100%;
-      padding: 0 1rem;
+      height: calc(100vh - 52px) !important;
+      overflow-y: auto !important;
     }
     
     .flex.h-full {
       flex-direction: column;
+      gap: 1.5rem;
     }
     
-    .w-[220px], .w-[640px], .w-[440px] {
+    .w-[210px], .w-[740px], .w-[370px] {
+      width: 100%;
+      flex-shrink: 1;
+    }
+    
+    .w-px {
+      display: none;
+    }
+    
+    /* Adjust grid for mobile */
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablet view - reduce padding and adjust layout */
+    .services-mega-menu {
+      width: calc(100vw - 0.75rem) !important;
+      padding: 1.25rem 1.25rem 0rem 1.25rem !important;
+      height: calc(100vh - 68px) !important;
+      overflow-y: auto !important;
+    }
+    
+    .flex.h-full {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .w-[220px], .w-[720px], .w-[380px] {
       width: 100%;
     }
     
@@ -631,10 +1043,34 @@ const categoryData = {
   }
   
   @media (min-width: 1025px) {
-    /* Desktop - ensure proper centering */
+    /* Desktop - ensure proper centering and scrolling */
     .services-mega-menu {
       margin-left: auto;
       margin-right: auto;
     }
+  }
+  
+  /* Ensure smooth scrolling */
+  .services-mega-menu {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar styling */
+  .services-mega-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .services-mega-menu::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+  }
+  
+  .services-mega-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 100, 0, 0.3);
+    border-radius: 3px;
+  }
+  
+  .services-mega-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 100, 0, 0.5);
   }
 </style>
