@@ -25,20 +25,18 @@ jobs:
           cache: 'npm'
 
       - name: Clean dependencies
-        working-directory: frontend
         run: |
           rm -rf node_modules
+          rm -rf frontend/node_modules
           rm -f package-lock.json
+          rm -f frontend/package-lock.json
           rm -f yarn.lock
           
       - name: Install dependencies
-        working-directory: frontend
         run: |
-          npm install
-          npm install @rollup/rollup-linux-x64-gnu --platform=linux --arch=x64
+          npm install --platform=linux --arch=x64
 
       - name: Build
-        working-directory: frontend
         run: npm run build
 
       - name: Add CNAME
