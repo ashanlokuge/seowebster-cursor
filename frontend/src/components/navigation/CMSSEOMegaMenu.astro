@@ -60,6 +60,12 @@ const cmsCategories = [
 <!-- CMS SEO Mega Menu Container - Perfectly centered relative to viewport -->
 <div class="cms-mega-menu fixed left-1/2 transform -translate-x-1/2 bg-white z-[1001] opacity-0 invisible transition-all duration-300 ease-out" style="top: calc(64px + 20px); width: min(90vw, 1200px); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px;">
   
+  <!-- Triangle Pointer to connect to navigation menu -->
+  <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+    <div class="w-0 h-0 border-l-6 border-r-6 border-b-6 border-transparent border-b-white drop-shadow-sm"></div>
+    <div class="w-0 h-0 border-l-6 border-r-6 border-b-6 border-transparent border-b-gray-200" style="margin-top: -1px;"></div>
+  </div>
+  
   <!-- Desktop 4-Column Grid Layout -->
   <div class="hidden lg:grid grid-cols-4 gap-8">
     
@@ -79,12 +85,17 @@ const cmsCategories = [
           {category.services.map((service) => (
             <a 
               href={service.url}
-              class="block text-base transition-colors duration-200 hover:underline"
+              class="block text-base transition-colors duration-200 hover:underline group"
               style="color: #272d3e;"
               onmouseover="this.style.color='#ff6400'"
               onmouseout="this.style.color='#272d3e'"
             >
-              {service.name}
+              <div class="flex items-center justify-between">
+                <span>{service.name}</span>
+                <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
             </a>
           ))}
         </nav>
@@ -136,9 +147,14 @@ const cmsCategories = [
             {category.services.map((service) => (
               <a 
                 href={service.url}
-                class="block py-2 text-base text-gray-700 hover:text-[#ff6400] transition-colors duration-200"
+                class="block py-2 text-base text-gray-700 hover:text-[#ff6400] transition-colors duration-200 group"
               >
-                {service.name}
+                <div class="flex items-center justify-between">
+                  <span>{service.name}</span>
+                  <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
               </a>
             ))}
           </nav>
