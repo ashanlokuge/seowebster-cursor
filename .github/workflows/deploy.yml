@@ -23,19 +23,26 @@ jobs:
         with:
           node-version: '20.19.4'
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
-      - name: Clean dependencies
-        working-directory: frontend
+      - name: Debug environment
+        run: |
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Platform: $(uname -s)"
+          echo "Architecture: $(uname -m)"
+
+      - name: Clean all dependencies
         run: |
           rm -rf node_modules
+          rm -rf frontend/node_modules
           rm -f package-lock.json
+          rm -f frontend/package-lock.json
           rm -f yarn.lock
+          rm -f frontend/yarn.lock
           
       - name: Install dependencies
-        working-directory: frontend
-        run: |
-          npm install
-          npm install @rollup/rollup-linux-x64-gnu --platform=linux --arch=x64
+        run: npm install
 
       - name: Build
         working-directory: frontend
