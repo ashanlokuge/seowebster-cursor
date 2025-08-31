@@ -299,7 +299,7 @@ const categoryData = {
         
         <div class="space-y-4">
                       <button 
-              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#ff6400] bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200/60 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#F57A18] bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200/60 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
               data-category="core"
               aria-label="View Core SEO Services"
             >
@@ -312,7 +312,7 @@ const categoryData = {
                   <span class="font-semibold font-sans text-sm block">Core SEO </span>
                 </div>
               </div>
-              <svg class="w-4 h-4 text-[#ff6400] transform rotate-90 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#F57A18] transform rotate-90 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
@@ -872,7 +872,7 @@ const categoryData = {
     function switchTab(category: string) {
       // Update active tab styling with enhanced visual feedback
       tabButtons.forEach(btn => {
-        btn.classList.remove('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
+        btn.classList.remove('active', 'text-[#F57A18]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         btn.classList.add('text-[#272d3e]', 'border-transparent');
         btn.setAttribute('aria-selected', 'false');
         
@@ -885,14 +885,14 @@ const categoryData = {
         }
         
         if (arrow) {
-          arrow.classList.remove('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
+          arrow.classList.remove('text-[#F57A18]', 'transform', 'rotate-90', 'scale-110');
           arrow.classList.add('text-gray-400');
         }
       });
       
       const activeButton = document.querySelector(`[data-category="${category}"]`);
       if (activeButton) {
-        activeButton.classList.add('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
+        activeButton.classList.add('active', 'text-[#F57A18]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         activeButton.classList.remove('text-[#272d3e]', 'border-transparent');
         activeButton.setAttribute('aria-selected', 'true');
         
@@ -906,7 +906,7 @@ const categoryData = {
         
         if (activeArrow) {
           activeArrow.classList.remove('text-gray-400');
-          activeArrow.classList.add('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
+          activeArrow.classList.add('text-[#F57A18]', 'transform', 'rotate-90', 'scale-110');
         }
       }
       
@@ -1042,7 +1042,7 @@ const categoryData = {
   /* Enhanced custom styles with better visual engagement */
   .tab-button.active {
     background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
-    border-color: #ff6400;
+    border-color: #F57A18;
     box-shadow: 0 4px 12px rgba(255, 100, 0, 0.15);
     transform: translateY(-1px);
   }
