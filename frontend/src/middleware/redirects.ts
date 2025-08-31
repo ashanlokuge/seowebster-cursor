@@ -1,6 +1,7 @@
 /**
  * Advanced SEO Redirect Middleware for SEOWebster
  * Handles dynamic redirects, analytics tracking, and advanced redirect scenarios
+ * INCLUDES COMPREHENSIVE TRAILING SLASH HANDLING
  */
 
 import type { MiddlewareResponseHandler } from 'astro';
@@ -249,10 +250,37 @@ function logRedirect(rule: RedirectRule, originalUrl: string, redirectUrl: strin
   }
 }
 
+// COMPREHENSIVE TRAILING SLASH HANDLING FUNCTION
+function handleTrailingSlash(url: URL): URL | null {
+  const pathname = url.pathname;
+  
+  // Skip root path - keep it as "/"
+  if (pathname === '/') {
+    return null;
+  }
+  
+  // Check if URL has trailing slash
+  if (pathname.endsWith('/')) {
+    const newUrl = new URL(url);
+    // Remove trailing slash
+    newUrl.pathname = pathname.slice(0, -1);
+    return newUrl;
+  }
+  
+  return null;
+}
+
 export const redirectMiddleware: MiddlewareResponseHandler = async (context, next) => {
   const url = new URL(context.request.url);
   
-  // Check dynamic redirect rules
+  // PRIORITY 1: Handle trailing slash redirects FIRST (before other redirects)
+  const trailingSlashRedirect = handleTrailingSlash(url);
+  if (trailingSlashRedirect) {
+    console.log(`Trailing Slash Redirect: ${url.pathname} → ${trailingSlashRedirect.pathname}`);
+    return Response.redirect(trailingSlashRedirect.toString(), 301);
+  }
+  
+  // PRIORITY 2: Check dynamic redirect rules
   for (const rule of dynamicRedirects) {
     const redirectTo = matchRedirectRule(url, rule);
     
@@ -269,14 +297,14 @@ export const redirectMiddleware: MiddlewareResponseHandler = async (context, nex
     }
   }
   
-  // Handle www vs non-www redirects (force non-www for SEO consistency)
+  // PRIORITY 3: Handle www vs non-www redirects (force non-www for SEO consistency)
   if (url.hostname.startsWith('www.')) {
     const newUrl = new URL(context.request.url);
     newUrl.hostname = newUrl.hostname.replace('www.', '');
     return Response.redirect(newUrl, 301);
   }
   
-  // Handle common SEO issues
+  // PRIORITY 4: Handle common SEO issues
   const pathname = url.pathname.toLowerCase();
   
   // Handle double extensions or incorrect file extensions in URLs
@@ -318,4 +346,11 @@ export function testRedirect(url: string): string | null {
   }
   
   return null;
+}
+
+// NEW: Test trailing slash handling specifically
+export function testTrailingSlash(url: string): string | null {
+  const testUrl = new URL(url, 'https://seowebster.com');
+  const redirect = handleTrailingSlash(testUrl);
+  return redirect ? redirect.pathname : null;
 }
