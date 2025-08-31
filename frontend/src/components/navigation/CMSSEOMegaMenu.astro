@@ -73,7 +73,7 @@ const cmsCategories = [
     {cmsCategories.slice(0, 3).map((category) => (
       <div class="cms-category">
         <!-- Category Header -->
-        <h3 class="text-xl font-bold mb-3" style="color: #ff6400;">
+        <h3 class="text-xl font-bold mb-3" style="color: #F57A18;">
           {category.title}
         </h3>
         <p class="text-sm mb-6 leading-relaxed" style="color: #6B7280;">
@@ -87,7 +87,7 @@ const cmsCategories = [
               href={service.url}
               class="block text-base transition-colors duration-200 hover:underline group"
               style="color: #272d3e;"
-              onmouseover="this.style.color='#ff6400'"
+              onmouseover="this.style.color='#F57A18'"
               onmouseout="this.style.color='#272d3e'"
             >
               <div class="flex items-center justify-between">
@@ -105,7 +105,7 @@ const cmsCategories = [
     <!-- Column 4: Call-to-Action Section -->
     <div class="cms-cta-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl border border-orange-200">
       <!-- Icon -->
-      <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background-color: #ff6400;">
+      <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background-color: #F57A18;">
         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
@@ -116,7 +116,7 @@ const cmsCategories = [
       <p class="text-sm text-gray-600 mb-4">Our specialists know every platform inside and out.</p>
       
       <!-- CTA Button -->
-      <a href="/contact" class="inline-flex items-center justify-center w-full px-4 py-2 bg-[#ff6400] text-white text-sm font-medium rounded-lg hover:bg-[#e55a00] transition-colors duration-200">
+      <a href="/contact" class="inline-flex items-center justify-center w-full px-4 py-2 bg-[#F57A18] text-white text-sm font-medium rounded-lg hover:bg-[#E06A15] transition-colors duration-200">
         Get Free Consultation
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -147,7 +147,7 @@ const cmsCategories = [
             {category.services.map((service) => (
               <a 
                 href={service.url}
-                class="block py-2 text-base text-gray-700 hover:text-[#ff6400] transition-colors duration-200 group"
+                class="block py-2 text-base text-gray-700 hover:text-[#F57A18] transition-colors duration-200 group"
               >
                 <div class="flex items-center justify-between">
                   <span>{service.name}</span>
@@ -313,7 +313,7 @@ const cmsCategories = [
   
   /* Enhanced hover effects */
   a:hover {
-    text-decoration-color: #ff6400;
+    text-decoration-color: #F57A18;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
   }
