@@ -134,6 +134,72 @@ const aiSeoServices = [
   }
 ];
 
+// Service data for Multilingual SEO Services
+const multilingualSeoServices = [
+  {
+    title: "Spanish SEO Services",
+    description: "Optimize for Spanish-speaking markets including Spain and Latin America",
+    icon: "🇪🇸",
+    link: "/services/multilingual-seo/spanish-seo"
+  },
+  {
+    title: "German SEO Agency",
+    description: "Dominate German search results with localized SEO strategies",
+    icon: "🇩🇪",
+    link: "/services/multilingual-seo/german-seo"
+  },
+  {
+    title: "French SEO Expert",
+    description: "Expert French SEO optimization for France and French-speaking markets",
+    icon: "🇫🇷",
+    link: "/services/multilingual-seo/french-seo"
+  },
+  {
+    title: "Italian SEO",
+    description: "Expert Italian SEO optimization for Italy and Italian-speaking markets",
+    icon: "🇮🇹",
+    link: "/services/multilingual-seo/italian-seo"
+  },
+  {
+    title: "Portuguese SEO",
+    description: "Optimize for Portuguese markets including Portugal, Brazil, and Africa",
+    icon: "🇵🇹",
+    link: "/services/multilingual-seo/portuguese-seo"
+  },
+  {
+    title: "Japanese SEO",
+    description: "Specialized SEO for the Japanese market with cultural expertise",
+    icon: "🇯🇵",
+    link: "/services/multilingual-seo/japanese-seo"
+  },
+  {
+    title: "Russian SEO",
+    description: "Expert Russian SEO optimization for Russia and Russian-speaking markets",
+    icon: "🇷🇺",
+    link: "/services/multilingual-seo/russian-seo"
+  },
+  {
+    title: "Korean SEO",
+    description: "Specialized SEO for Korean markets with cultural expertise",
+    icon: "🇰🇷",
+    link: "/services/multilingual-seo/korean-seo"
+  },
+  {
+    title: "Chinese SEO",
+    description: "Expert Chinese SEO optimization with Baidu expertise for Chinese markets",
+    icon: "🇨🇳",
+    link: "/services/multilingual-seo/chinese-seo"
+  },
+  {
+    title: "Arabic SEO",
+    description: "Specialized Arabic SEO services for Middle Eastern and Arabic-speaking markets",
+    icon: "🇸🇦",
+    link: "/services/multilingual-seo/arabic-seo"
+  }
+];
+
+
+
 // Service data for SEO Tools
 const seoToolsServices = [
   {
@@ -195,6 +261,18 @@ const categoryData = {
       "Performance tracking",
       "Actionable insights"
     ]
+  },
+  multilingual: {
+    title: "Multilingual SEO Services",
+    description: "Global market expansion through expert international SEO and multi-language optimization strategies. Conquer new markets with culturally-aware, technically-sound SEO solutions.",
+    image: "🌍",
+    benefits: [
+      "8 Major Languages Supported",
+      "Cultural Localization Expertise", 
+      "Technical International SEO",
+      "Market-Specific Strategies",
+      "Proven ROI Results"
+    ]
   }
 };
 ---
@@ -221,7 +299,7 @@ const categoryData = {
         
         <div class="space-y-4">
                       <button 
-              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#ff6400] bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200/60 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+              class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 tab-button active text-[#F57A18] bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200/60 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
               data-category="core"
               aria-label="View Core SEO Services"
             >
@@ -234,7 +312,7 @@ const categoryData = {
                   <span class="font-semibold font-sans text-sm block">Core SEO </span>
                 </div>
               </div>
-              <svg class="w-4 h-4 text-[#ff6400] transform rotate-90 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#F57A18] transform rotate-90 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
@@ -272,6 +350,26 @@ const categoryData = {
         </div>
                 <div>
                   <span class="font-semibold font-sans text-sm block">AI SEO</span>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-orange-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </button>
+          
+          <button 
+            class="group w-full text-left px-4 py-3 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 tab-button text-[#272d3e] rounded-lg border border-transparent hover:border-gray-200/60 hover:shadow-md transform hover:-translate-y-0.5"
+            data-category="multilingual"
+            aria-label="View Multilingual SEO Services"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gray-500 rounded-lg flex items-center justify-center shadow-sm group-hover:bg-orange-500 transition-colors duration-300">
+                  <span class="text-white text-sm">🌍</span>
+                </div>
+                <div>
+                  <span class="font-semibold font-sans text-sm block">Multilingual SEO</span>
                 </div>
               </div>
               <svg class="w-4 h-4 text-gray-400 transition-all duration-200 group-hover:text-orange-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -427,6 +525,62 @@ const categoryData = {
               </a>
             ))}
           </div>
+        </div>
+        
+        <div class="service-cards hidden" id="multilingual-services">
+          <!-- Section Header -->
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">Multilingual SEO Services</h3>
+            <p class="text-sm text-gray-600">Global market expansion through expert international SEO and multi-language optimization</p>
+          </div>
+          
+                          <div class="grid grid-cols-2 gap-4">
+                  {multilingualSeoServices.map((service) => {
+                    // Define flag colors for each service
+                    const flagColors = {
+                      "Spanish SEO Services": { primary: "from-red-600 to-yellow-600", secondary: "from-red-500 to-yellow-500", text: "text-red-600", hover: "group-hover:text-red-700" },
+                      "German SEO Agency": { primary: "from-black to-red-600", secondary: "from-gray-800 to-red-500", text: "text-gray-800", hover: "group-hover:text-gray-900" },
+                      "French SEO Expert": { primary: "from-blue-600 to-red-600", secondary: "from-blue-500 to-red-500", text: "text-blue-600", hover: "group-hover:text-blue-700" },
+                      "Italian SEO": { primary: "from-green-600 to-red-600", secondary: "from-green-500 to-red-500", text: "text-green-600", hover: "group-hover:text-green-700" },
+                      "Portuguese SEO": { primary: "from-red-600 to-green-600", secondary: "from-red-500 to-green-500", text: "text-red-600", hover: "group-hover:text-red-700" },
+                      "Japanese SEO": { primary: "from-red-600 to-white", secondary: "from-red-500 to-gray-100", text: "text-red-600", hover: "group-hover:text-red-700" },
+                      "Russian SEO": { primary: "from-blue-600 to-red-600", secondary: "from-blue-500 to-red-500", text: "text-blue-600", hover: "group-hover:text-blue-700" },
+                      "Korean SEO": { primary: "from-blue-600 to-red-600", secondary: "from-blue-500 to-red-500", text: "text-blue-600", hover: "group-hover:text-blue-700" }
+                    };
+                    
+                    const colors = flagColors[service.title] || { primary: "from-orange-500 to-red-500", secondary: "from-orange-400 to-red-400", text: "text-orange-600", hover: "group-hover:text-orange-700" };
+                    
+                    return (
+                      <a 
+                        href={service.link}
+                        class="group relative p-5 rounded-2xl border border-gray-100/80 bg-white/80 backdrop-blur-sm hover:border-gray-200/80 hover:shadow-xl hover:shadow-gray-100/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+                      >
+                        <!-- Hover gradient overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <div class="relative flex items-start space-x-4">
+                          <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-gray-100 group-hover:to-gray-200 transition-all duration-300 border border-gray-200/50 group-hover:border-gray-200/50">
+                            <span class="text-gray-700 group-hover:text-gray-800 text-xl transition-colors duration-300">{service.icon}</span>
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <h4 class={`font-bold ${colors.text} ${colors.hover} transition-colors duration-300 text-base mb-2 leading-tight`}>
+                              {service.title}
+                            </h4>
+                            <p class="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700">
+                              {service.description}
+                            </p>
+                          </div>
+                          <!-- Arrow indicator -->
+                          <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                            <svg class={`w-5 h-5 ${colors.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
         </div>
         
         <div class="service-cards hidden" id="tools-services">
@@ -656,6 +810,51 @@ const categoryData = {
             </div>
           </div>
         </div>
+        
+        <div class="category-description hidden" id="multilingual-description">
+          <div class="relative bg-gradient-to-br from-orange-50 via-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200/60 shadow-lg backdrop-blur-sm overflow-hidden flex flex-col justify-center items-center text-center">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-xl"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-orange-300/20 to-transparent rounded-full blur-lg"></div>
+            
+            <!-- Featured Image/Icon -->
+            <div class="relative text-center mb-6">
+              <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg border border-orange-200/50 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl">{categoryData.multilingual.image}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans">{categoryData.multilingual.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{categoryData.multilingual.description}</p>
+            </div>
+            
+            <!-- Key Benefits Checklist -->
+            <div class="relative space-y-3">
+              <h4 class="font-bold text-gray-900 text-base mb-4 flex items-center">
+                <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                Key Benefits:
+              </h4>
+              {categoryData.multilingual.benefits.map((benefit) => (
+                <div class="flex items-center space-x-3 group">
+                  <div class="w-5 h-5 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 group-hover:bg-orange-600 transition-all duration-300">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm text-gray-800 font-medium group-hover:text-orange-700 transition-colors duration-300">{benefit}</span>
+                </div>
+              ))}
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="mt-6 pt-4 border-t border-orange-200/50">
+              <a href="/contact" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center space-x-2">
+                <span>Get Started</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       
     </div>
@@ -673,7 +872,7 @@ const categoryData = {
     function switchTab(category: string) {
       // Update active tab styling with enhanced visual feedback
       tabButtons.forEach(btn => {
-        btn.classList.remove('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
+        btn.classList.remove('active', 'text-[#F57A18]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         btn.classList.add('text-[#272d3e]', 'border-transparent');
         btn.setAttribute('aria-selected', 'false');
         
@@ -686,14 +885,14 @@ const categoryData = {
         }
         
         if (arrow) {
-          arrow.classList.remove('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
+          arrow.classList.remove('text-[#F57A18]', 'transform', 'rotate-90', 'scale-110');
           arrow.classList.add('text-gray-400');
         }
       });
       
       const activeButton = document.querySelector(`[data-category="${category}"]`);
       if (activeButton) {
-        activeButton.classList.add('active', 'text-[#ff6400]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
+        activeButton.classList.add('active', 'text-[#F57A18]', 'bg-gradient-to-r', 'from-orange-50', 'to-orange-100', 'border-orange-200/60', 'shadow-sm');
         activeButton.classList.remove('text-[#272d3e]', 'border-transparent');
         activeButton.setAttribute('aria-selected', 'true');
         
@@ -707,7 +906,7 @@ const categoryData = {
         
         if (activeArrow) {
           activeArrow.classList.remove('text-gray-400');
-          activeArrow.classList.add('text-[#ff6400]', 'transform', 'rotate-90', 'scale-110');
+          activeArrow.classList.add('text-[#F57A18]', 'transform', 'rotate-90', 'scale-110');
         }
       }
       
@@ -722,7 +921,21 @@ const categoryData = {
       });
       
       setTimeout(() => {
-        const targetServices = document.getElementById(`${category}-services`);
+        let targetServices;
+        if (category === 'core') {
+          targetServices = document.getElementById('core-services');
+        } else if (category === 'advanced') {
+          targetServices = document.getElementById('advanced-services');
+        } else if (category === 'aiseo') {
+          targetServices = document.getElementById('aiseo-services');
+        } else if (category === 'multilingual') {
+          targetServices = document.getElementById('multilingual-services');
+        } else if (category === 'tools') {
+          targetServices = document.getElementById('tools-services');
+        } else {
+          targetServices = document.getElementById('core-services');
+        }
+        
         if (targetServices) {
           targetServices.classList.remove('hidden');
           targetServices.style.opacity = '1';
@@ -829,7 +1042,7 @@ const categoryData = {
   /* Enhanced custom styles with better visual engagement */
   .tab-button.active {
     background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
-    border-color: #ff6400;
+    border-color: #F57A18;
     box-shadow: 0 4px 12px rgba(255, 100, 0, 0.15);
     transform: translateY(-1px);
   }

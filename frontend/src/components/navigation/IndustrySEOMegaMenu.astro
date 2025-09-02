@@ -64,7 +64,7 @@ const industryCategories = [
   <!-- Desktop Mega Menu (Hidden on Mobile) -->
   <div class="hidden lg:block">
     <!-- Trigger Button -->
-    <button class="text-gray-700 hover:text-[#ff6200] text-sm font-medium transition-colors duration-200 flex items-center group-hover:text-[#ff6200]">
+    <button class="text-gray-700 hover:text-[#F57A18] text-sm font-medium transition-colors duration-200 flex items-center group-hover:text-[#F57A18]">
       Industry SEO
       <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -156,7 +156,7 @@ const industryCategories = [
   <div class="lg:hidden">
     <!-- Mobile Toggle Button -->
     <button 
-      class="mobile-industry-toggle w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#ff6200] hover:bg-gray-50 rounded-md transition-colors duration-200 flex items-center justify-between"
+      class="mobile-industry-toggle w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#F57A18] hover:bg-gray-50 rounded-md transition-colors duration-200 flex items-center justify-between"
       aria-expanded="false"
       aria-controls="mobile-industry-menu"
     >
@@ -181,7 +181,7 @@ const industryCategories = [
             {category.services.map((service) => (
         <a 
           href={service.url}
-                class="block px-3 py-2 text-sm text-gray-600 hover:text-[#ff6200] rounded-md transition-colors duration-200 hover:bg-white"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-[#F57A18] rounded-md transition-colors duration-200 hover:bg-white"
         >
           {service.name}
         </a>
@@ -286,7 +286,7 @@ const industryCategories = [
   /* Focus states for accessibility */
   .industry-seo-megamenu a:focus,
   .industry-seo-megamenu button:focus {
-    outline: 2px solid #ff6400;
+    outline: 2px solid #F57A18;
     outline-offset: 2px;
     border-radius: 0.5rem;
   }
