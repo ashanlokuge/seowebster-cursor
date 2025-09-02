@@ -1,0 +1,257 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "What Our Sri Lankan Clients Say",
+  subtitle = "Real stories from Sri Lankan businesses that transformed with our SEO expertise"
+} = Astro.props;
+
+const testimonials = [
+  {
+    quote: "SEOWebster helped us triple our organic traffic in Sri Lanka in just 3 months with clear reporting and measurable results.",
+    author: "Ruwan Perera",
+    position: "Managing Director",
+    company: "Lanka Fashion Store",
+    avatar: "/images/testimonials/ruwan-perera.svg",
+    rating: 5,
+    results: "3x LK Traffic Increase"
+  },
+  {
+    quote: "Ranked on page 1 for competitive Sri Lankan keywords in under 60 days. Their expertise in local SEO is unmatched.",
+    author: "Priya Fernando",
+    position: "E-commerce Director",
+    company: "Island Spice Online",
+    avatar: "/images/testimonials/priya-fernando.svg",
+    rating: 5,
+    results: "Page 1 Rankings LK"
+  },
+  {
+    quote: "Our Sinhala and Tamil content now ranks for high-value keywords. Their multi-language strategies actually deliver results.",
+    author: "Kasun Silva",
+    position: "Marketing Lead",
+    company: "TechLanka Solutions",
+    avatar: "/images/testimonials/kasun-silva.svg",
+    rating: 5,
+    results: "Multi-Language Success"
+  },
+  {
+    quote: "400% increase in qualified leads from Sri Lankan customers within 4 months. The ROI has been exceptional for our LK market.",
+    author: "Chamali Rajapaksa",
+    position: "Business Owner",
+    company: "Colombo Digital Agency",
+    avatar: "/images/testimonials/chamali-rajapaksa.svg",
+    rating: 5,
+    results: "400% LK Lead Increase"
+  },
+  {
+    quote: "Their understanding of Sri Lankan search behavior and local market made our SEO journey smooth and successful.",
+    author: "Nuwan Bandara",
+    position: "Founder",
+    company: "LankaStartup Hub",
+    avatar: "/images/testimonials/nuwan-bandara.svg",
+    rating: 5,
+    results: "10x ROI in LK"
+  },
+  {
+    quote: "Now dominating local search results across Sri Lanka. Perfect for businesses targeting the entire island market.",
+    author: "Sanduni Wickramasinghe",
+    position: "Owner",
+    company: "Ceylon Authentic Restaurant",
+    avatar: "/images/testimonials/sanduni-wickramasinghe.svg",
+    rating: 5,
+    results: "LK Local Domination"
+  }
+];
+---
+
+<section class="py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-white to-slate-50/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-600 mb-4">
+        Sri Lankan Success Stories
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <div class="relative">
+      <!-- Slider Container -->
+      <div class="overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-in-out" id="testimonials-slider-lk">
+          {testimonials.map((testimonial) => (
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                <!-- Rating -->
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex gap-1">
+                    {Array.from({ length: testimonial.rating }, () => (
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    ))}
+                  </div>
+                  <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">
+                    {testimonial.results}
+                  </span>
+                </div>
+
+                <!-- Quote -->
+                <blockquote class="text-gray-700 text-base mb-6 flex-grow">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                <!-- Author -->
+                <div class="flex items-center">
+                  <div class="relative flex-shrink-0">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-green-500 flex items-center justify-center ring-2 ring-white">
+                      <span class="text-white font-semibold text-lg">
+                        {testimonial.author.split(' ').map(name => name[0]).join('')}
+                      </span>
+                    </div>
+                    <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></div>
+                  </div>
+                  <div class="ml-3">
+                    <div class="font-medium text-gray-900">{testimonial.author}</div>
+                    <div class="text-sm text-gray-500">{testimonial.position} · {testimonial.company}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex items-center justify-center mt-8 gap-3">
+        <button 
+          class="p-2 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors"
+          onclick="previousSlideLK()"
+        >
+          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <div class="flex items-center gap-2">
+          {Array.from({ length: Math.ceil(testimonials.length / 3) }, (_, i) => (
+            <button 
+              class="w-2 h-2 rounded-full bg-gray-300 hover:bg-blue-500 transition-colors dot-indicator-lk"
+              onclick={`goToSlideLK(${i})`}
+              data-slide={i}
+            ></button>
+          ))}
+        </div>
+
+        <button 
+          class="p-2 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors"
+          onclick="nextSlideLK()"
+        >
+          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <a 
+        href="/lk/contact" 
+        class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors"
+      >
+        Start Your Sri Lankan Success Story
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentSlideLK = 0;
+      const totalSlidesLK = document.querySelectorAll('#testimonials-slider-lk > div').length;
+      let slidesPerViewLK = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+      let maxSlidesLK = Math.ceil(totalSlidesLK / slidesPerViewLK);
+      let autoPlayIntervalLK;
+
+      function updateSliderLK() {
+        const slider = document.getElementById('testimonials-slider-lk');
+        if (!slider) return;
+        
+        const translateX = -(currentSlideLK * (100 / slidesPerViewLK));
+        slider.style.transform = 'translateX(' + translateX + '%)';
+        
+        document.querySelectorAll('.dot-indicator-lk').forEach((dot, index) => {
+          if (dot) {
+            dot.classList.toggle('bg-blue-500', index === currentSlideLK);
+            dot.classList.toggle('bg-gray-300', index !== currentSlideLK);
+          }
+        });
+      }
+
+      function nextSlideLK() {
+        currentSlideLK = (currentSlideLK + 1) % maxSlidesLK;
+        updateSliderLK();
+      }
+
+      function previousSlideLK() {
+        currentSlideLK = (currentSlideLK - 1 + maxSlidesLK) % maxSlidesLK;
+        updateSliderLK();
+      }
+
+      function goToSlideLK(slideIndex) {
+        currentSlideLK = slideIndex;
+        updateSliderLK();
+      }
+
+      function startAutoPlayLK() {
+        if (autoPlayIntervalLK) clearInterval(autoPlayIntervalLK);
+        autoPlayIntervalLK = setInterval(nextSlideLK, 5000);
+      }
+      
+      function stopAutoPlayLK() {
+        if (autoPlayIntervalLK) {
+          clearInterval(autoPlayIntervalLK);
+          autoPlayIntervalLK = null;
+        }
+      }
+
+      function handleResizeLK() {
+        const newSlidesPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+        if (newSlidesPerView !== slidesPerViewLK) {
+          slidesPerViewLK = newSlidesPerView;
+          maxSlidesLK = Math.ceil(totalSlidesLK / slidesPerViewLK);
+          currentSlideLK = 0;
+          updateSliderLK();
+        }
+      }
+
+      // Initialize
+      updateSliderLK();
+      startAutoPlayLK();
+      
+      // Event listeners
+      const sliderContainer = document.querySelector('#testimonials-slider-lk').parentElement;
+      if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoPlayLK);
+        sliderContainer.addEventListener('mouseleave', startAutoPlayLK);
+      }
+      window.addEventListener('resize', handleResizeLK);
+
+      // Global functions
+      window.nextSlideLK = nextSlideLK;
+      window.previousSlideLK = previousSlideLK;
+      window.goToSlideLK = goToSlideLK;
+    });
+  </script>
+</section>

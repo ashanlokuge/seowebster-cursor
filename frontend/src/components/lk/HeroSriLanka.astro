@@ -1,0 +1,279 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title = "Drive More Traffic & Revenue with Data-Driven SEO",
+  description = "Transform your business online presence with our expert SEO services. Get higher rankings, more organic traffic, and better ROI with our proven strategies designed for the local market.",
+  ctaText = "Get Free SEO Audit",
+  ctaLink = "/lk/contact"
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-white">
+  <!-- Background Pattern with Sri Lankan Colors -->
+  <div class="absolute inset-0 z-0 opacity-5">
+    <div class="absolute inset-y-0 -right-1/4 w-1/2 bg-orange-600/10 transform rotate-12"></div>
+    <div class="absolute inset-y-0 -left-1/4 w-1/2 bg-green-600/10 transform -rotate-12"></div>
+  </div>
+
+  <!-- Floating Platform Icons for Visual Appeal -->
+  <div class="absolute inset-0 z-5 pointer-events-none">
+    <!-- Top Left Corner - Search Engine Icon -->
+    <div class="absolute top-8 left-4 w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg animate-float">
+      <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </div>
+    
+    <!-- Top Right Corner - Analytics Chart Icon -->
+    <div class="absolute top-12 right-6 w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-float-delayed">
+      <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+      </svg>
+    </div>
+    
+    <!-- Bottom Left Corner - Trending Up Icon -->
+    <div class="absolute bottom-16 left-6 w-9 h-9 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-float">
+      <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+      </svg>
+    </div>
+
+    <!-- Bottom Right Corner - Sri Lankan Flag Inspired Icon -->
+    <div class="absolute bottom-20 right-4 w-7 h-7 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-lg animate-float-delayed">
+      <span class="text-white text-xs font-bold">🇱🇰</span>
+    </div>
+
+    <!-- Center Top - Keyword/Text Icon -->
+    <div class="absolute top-6 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+      <svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9 4v1.38c-.83-.33-1.72-.5-2.61-.5-1.79 0-3.58.68-4.95 2.05l3.33 3.33h1.11v1.11c.86.86 1.98 1.31 3.11 1.36V15H6v3c0 1.1.9 2 2 2h10c1.66 0 3-1.34 3-3V4H9zm-1.11 6.41V8.26H5.61L4.57 7.22C5.14 7 5.76 6.88 6.39 6.88c1.34 0 2.59.52 3.54 1.46l1.41 1.41-.2.2c-.51.51-1.19.8-1.92.8-.47 0-.93-.12-1.33-.34z"/>
+      </svg>
+    </div>
+    
+    <!-- Center Bottom - Speed/Lightning Icon -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+      <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+      <!-- Text Content -->
+      <div class="lg:col-span-6 text-center lg:text-left order-2 lg:order-1">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-800 mb-3 sm:mb-4 leading-tight">
+          {title}
+        </h1>
+        <p class="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          {description}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center lg:justify-start">
+          <a
+            href={ctaLink}
+            class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 hover:from-blue-600 hover:via-green-600 hover:to-yellow-600 transform transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            {ctaText}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a
+            href="/lk/seo-services"
+            class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold text-blue-900 bg-white border-2 border-blue-900 hover:bg-blue-900 hover:text-white transform transition-all duration-200"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual - Modern SEO Dashboard for Sri Lanka -->
+      <div class="lg:col-span-6 flex justify-center order-1 lg:order-2">
+        <div class="relative w-full max-w-sm sm:max-w-md lg:max-w-none h-[280px] sm:h-[320px] lg:h-[420px] bg-gradient-to-br from-gray-50 to-white rounded-xl lg:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl border border-gray-100">
+          
+          <!-- Dashboard Header -->
+          <div class="absolute top-0 left-0 right-0 h-12 bg-white border-b border-gray-200 flex items-center px-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+              <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+            </div>
+            <div class="ml-4 text-xs font-medium text-gray-600">SEO Analytics Dashboard</div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="absolute top-12 left-0 right-0 bottom-0 p-4">
+            
+            <!-- Stats Cards Row -->
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <!-- Organic Traffic Card -->
+              <div class="bg-white rounded-lg p-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-1">
+                  <div class="text-[8px] font-medium text-gray-500 uppercase tracking-wide">LK Traffic</div>
+                  <div class="w-3 h-3 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg class="w-1.5 h-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-sm font-bold text-gray-900 mb-1">47.2K</div>
+                <div class="text-[8px] text-green-600 font-medium">+23.5% ↗</div>
+              </div>
+
+              <!-- Keywords Ranking Card -->
+              <div class="bg-white rounded-lg p-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-1">
+                  <div class="text-[8px] font-medium text-gray-500 uppercase tracking-wide">Keywords</div>
+                  <div class="w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center">
+                    <svg class="w-1.5 h-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-sm font-bold text-gray-900 mb-1">1,247</div>
+                <div class="text-[8px] text-blue-600 font-medium">+18.2% ↗</div>
+              </div>
+
+              <!-- Conversion Rate Card -->
+              <div class="bg-white rounded-lg p-2 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div class="flex items-center justify-between mb-1">
+                  <div class="text-[8px] font-medium text-gray-500 uppercase tracking-wide">Conversion</div>
+                  <div class="w-3 h-3 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <svg class="w-1.5 h-1.5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-sm font-bold text-gray-900 mb-1">4.8%</div>
+                <div class="text-[8px] text-yellow-600 font-medium">+12.1% ↗</div>
+              </div>
+            </div>
+
+            <!-- Main Chart Area -->
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100 mb-3 h-36">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xs font-semibold text-gray-900">Traffic Growth</h3>
+                <div class="flex items-center space-x-2">
+                  <div class="flex items-center space-x-1">
+                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span class="text-[8px] text-gray-600">Organic LK</span>
+                  </div>
+                  <div class="flex items-center space-x-1">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span class="text-[8px] text-gray-600">Direct</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Animated Chart -->
+              <div class="relative h-24 flex items-end justify-between space-x-1">
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t animate-pulse" style="height: 45px;"></div>
+                  <div class="text-[8px] text-gray-500">Jan</div>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t animate-pulse" style="height: 55px; animation-delay: 0.1s;"></div>
+                  <div class="text-[8px] text-gray-500">Feb</div>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-green-400 to-green-300 rounded-t animate-pulse" style="height: 65px; animation-delay: 0.2s;"></div>
+                  <div class="text-[8px] text-gray-500">Mar</div>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-green-400 to-green-300 rounded-t animate-pulse" style="height: 60px; animation-delay: 0.3s;"></div>
+                  <div class="text-[8px] text-gray-500">Apr</div>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-yellow-400 to-yellow-300 rounded-t animate-pulse" style="height: 80px; animation-delay: 0.4s;"></div>
+                  <div class="text-[8px] text-gray-500">May</div>
+                </div>
+                <div class="flex flex-col items-center space-y-1">
+                  <div class="w-6 bg-gradient-to-t from-yellow-400 to-yellow-300 rounded-t animate-pulse" style="height: 90px; animation-delay: 0.5s;"></div>
+                  <div class="text-[8px] text-gray-500">Jun</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Row - Performance Indicators -->
+            <div class="grid grid-cols-2 gap-3">
+              <!-- SEO Score -->
+              <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-[8px] font-medium text-gray-500 uppercase tracking-wide mb-1">SEO Score LK</div>
+                    <div class="text-lg font-bold text-gray-900">94/100</div>
+                  </div>
+                  <div class="relative w-10 h-10">
+                    <svg class="w-10 h-10 transform -rotate-90" viewBox="0 0 36 36">
+                      <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                      <path class="text-green-500" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="94, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <span class="text-[8px] font-semibold text-green-600">A+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Page Speed -->
+              <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-[8px] font-medium text-gray-500 uppercase tracking-wide mb-1">Page Speed</div>
+                    <div class="text-lg font-bold text-gray-900">2.1s</div>
+                  </div>
+                  <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Elements for Visual Appeal -->
+          <div class="absolute top-16 right-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping"></div>
+          <div class="absolute top-24 right-6 w-1 h-1 bg-green-400 rounded-full animate-pulse"></div>
+          <div class="absolute bottom-16 left-3 w-1 h-1 bg-yellow-400 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float-delayed 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+</style>

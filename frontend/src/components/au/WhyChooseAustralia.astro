@@ -1,0 +1,117 @@
+---
+const reasons = [
+  {
+    title: "Local Australian Expertise",
+    description: "Deep understanding of Australian market dynamics, consumer behavior, and search patterns across major cities.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>`,
+    colors: "from-blue-400 to-cyan-500"
+  },
+  {
+    title: "Multi-City SEO Mastery",
+    description: "Proven strategies for ranking in Sydney, Melbourne, Brisbane, Perth, and other major Australian markets.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+    </svg>`,
+    colors: "from-green-400 to-emerald-500"
+  },
+  {
+    title: "Competitive AU Pricing",
+    description: "Transparent Australian dollar pricing with exceptional value. No hidden fees, no surprises.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+    </svg>`,
+    colors: "from-yellow-400 to-orange-500"
+  },
+  {
+    title: "Mobile-First AU Approach",
+    description: "Optimized for Australia's mobile-first audience with fast loading speeds and responsive design.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    colors: "from-purple-400 to-pink-500"
+  },
+  {
+    title: "Australian Business Directory",
+    description: "Strategic listings in top Australian business directories and local citation sources.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+    </svg>`,
+    colors: "from-indigo-400 to-blue-500"
+  },
+  {
+    title: "Proven AU Results",
+    description: "Helping 250+ Australian businesses achieve top rankings and increase revenue through SEO.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>`,
+    colors: "from-green-400 to-teal-500"
+  }
+];
+---
+
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <div class="text-sm font-semibold text-[#F57A18] uppercase tracking-wider mb-2">
+        Why Choose SEOWebster Australia
+      </div>
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#272d3e] mb-4 leading-tight">
+        What We Offer Australian Businesses
+      </h2>
+      <p class="text-lg lg:text-xl text-[#6B7280] max-w-2xl mx-auto">
+        We deliver strategic SEO with real impact for the Australian market, not empty promises.
+      </p>
+    </div>
+
+    <!-- Reasons Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {reasons.map((reason) => (
+        <div class="group bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#F57A18]/20 hover:-translate-y-1 cursor-pointer text-center">
+          <div class={`w-16 h-16 bg-gradient-to-br ${reason.colors} rounded-xl flex items-center justify-center text-white mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+            <Fragment set:html={reason.icon} />
+          </div>
+          <h3 class="text-xl font-bold text-[#272d3e] mb-4 group-hover:text-[#F57A18] transition-colors duration-300">
+            {reason.title}
+          </h3>
+          <p class="text-[#6B7280] leading-relaxed">
+            {reason.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12 lg:mt-16">
+      <div class="bg-gradient-to-r from-[#F57A18] to-[#E06A15] rounded-2xl p-8 lg:p-10 shadow-xl">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Ready to see the difference in Australia?
+        </h3>
+        <p class="text-white text-opacity-90 text-lg mb-6 max-w-2xl mx-auto">
+          Join 250+ Australian businesses that trust SEOWebster to deliver real SEO results that drive growth.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/au/contact" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-[#F57A18] font-semibold rounded-lg hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-md"
+          >
+            Start Your Free Audit
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a 
+            href="/au/seo-services" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#F57A18] transform transition-all duration-200"
+          >
+            View Services
+            <span class="ml-2">🇦🇺</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

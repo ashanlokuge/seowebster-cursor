@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Australian Hero Component
+import HeroAustralia from '../../components/au/HeroAustralia.astro';
+import PartnersAustralia from '../../components/au/PartnersAustralia.astro';
+import ServicesAustralia from '../../components/au/ServicesAustralia.astro';
+import WhyChooseAustralia from '../../components/au/WhyChooseAustralia.astro';
+import PricingAustralia from '../../components/au/PricingAustralia.astro';
+import TestimonialsAustralia from '../../components/au/TestimonialsAustralia.astro';
+import FAQAustralia from '../../components/au/FAQAustralia.astro';
+---
+
+<BaseLayout
+  title="SEO Services Australia | Expert SEO Company AU | SEOWebster"
+  description="Leading SEO services in Australia. Professional SEO company offering digital marketing, website optimization, and online visibility solutions for Australian businesses."
+>
+  <HeroAustralia />
+  <PartnersAustralia />
+  <ServicesAustralia />
+  <WhyChooseAustralia />
+  <PricingAustralia />
+  <TestimonialsAustralia />
+  <FAQAustralia />
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-600 via-green-600 to-yellow-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Ready to Dominate Australian Search Results?</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Let's create a customized SEO strategy that drives real results for your Australian business.</p>
+      <a 
+        href="/au/contact" 
+        class="inline-flex items-center px-8 py-4 rounded-lg text-lg font-semibold text-blue-600 bg-white hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+      >
+        Get Free SEO Audit
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
