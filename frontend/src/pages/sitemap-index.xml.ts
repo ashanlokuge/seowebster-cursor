@@ -10,6 +10,7 @@ function generateSitemapIndex(): string {
     { loc: `${siteUrl}/sitemap-pages.xml`, lastmod }, // Static pages
     { loc: `${siteUrl}/sitemap-services.xml`, lastmod }, // All service pages
     { loc: `${siteUrl}/sitemap-content.xml`, lastmod }, // Blog and content pages
+    { loc: `${siteUrl}/sitemap-countries.xml`, lastmod }, // Country-specific pages (LK, AU)
   ];
   
   return `<?xml version="1.0" encoding="UTF-8"?>

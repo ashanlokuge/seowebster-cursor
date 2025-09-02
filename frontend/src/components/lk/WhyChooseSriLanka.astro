@@ -1,0 +1,156 @@
+---
+const reasons = [
+  {
+    title: "Local Sri Lankan Expertise",
+    description: "Deep understanding of Sri Lankan market dynamics, consumer behavior, and local business challenges.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>`,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  },
+  {
+    title: "Multi-Language SEO Mastery",
+    description: "Expert optimization for Sinhala, Tamil, and English content to reach all Sri Lankan audiences effectively.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>`,
+    iconBg: "bg-green-100",
+    iconColor: "text-green-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  },
+  {
+    title: "Affordable LK Pricing",
+    description: "Cost-effective SEO solutions designed specifically for Sri Lankan business budgets and market conditions.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+    </svg>`,
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  },
+  {
+    title: "Proven Sri Lankan Results",
+    description: "Our track record speaks for itself - helping 178+ Sri Lankan businesses achieve significant growth and rankings.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+    </svg>`,
+    iconBg: "bg-yellow-100",
+    iconColor: "text-yellow-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  },
+  {
+    title: "Mobile-First LK Approach",
+    description: "Optimized for Sri Lanka's mobile-heavy internet usage patterns and local connectivity infrastructure.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    iconBg: "bg-red-100",
+    iconColor: "text-red-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  },
+  {
+    title: "Complete LK SEO Partner",
+    description: "From local citations to content creation to link-building - we handle everything for Sri Lankan businesses under one roof.",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+    </svg>`,
+    iconBg: "bg-indigo-100",
+    iconColor: "text-indigo-600",
+    hoverBg: "group-hover:bg-[#F57A18]",
+    hoverColor: "group-hover:text-white"
+  }
+];
+---
+
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <div class="text-sm font-semibold text-[#F57A18] uppercase tracking-wider mb-2">
+        Why Choose SEOWebster
+      </div>
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#272d3e] mb-4 leading-tight">
+        What We Offer Your Business
+      </h2>
+      <p class="text-lg lg:text-xl text-[#6B7280] max-w-2xl mx-auto">
+        We deliver strategic SEO with real impact for the local market, not empty promises.
+      </p>
+    </div>
+
+    <!-- Reasons Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {reasons.map((reason) => (
+        <div class="group bg-white rounded-xl p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#F57A18]/20 hover:-translate-y-1 cursor-pointer text-center">
+          <!-- Icon -->
+          <div class={`w-16 h-16 ${reason.iconBg} ${reason.iconColor} ${reason.hoverBg} ${reason.hoverColor} rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300 group-hover:scale-110 shadow-sm`}>
+            <Fragment set:html={reason.icon} />
+          </div>
+          
+          <!-- Content -->
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-[#272d3e] mb-3 group-hover:text-[#F57A18] transition-colors duration-300">
+              {reason.title}
+            </h3>
+            <p class="text-[#6B7280] text-base lg:text-lg leading-relaxed">
+              {reason.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12 lg:mt-16">
+      <div class="bg-gradient-to-r from-[#F57A18] to-[#E06A15] rounded-2xl p-8 lg:p-10 shadow-xl">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Ready to see the difference?
+        </h3>
+        <p class="text-white text-opacity-90 text-lg mb-6 max-w-2xl mx-auto">
+          Join 178+ local businesses that trust SEOWebster to deliver real SEO results that drive growth.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/lk/contact" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-[#F57A18] font-semibold rounded-lg hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-md"
+          >
+            Start Your Free Audit
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a 
+            href="/lk/seo-services" 
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#F57A18] transform transition-all duration-200"
+          >
+            View LK Case Studies
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom hover effects for better performance */
+  .group:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .group * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Enhanced shadow on hover */
+  .group:hover .shadow-sm {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  currentCountry: 'us' | 'lk' | 'au';
+  currentPage?: string;
+}
+
+const { currentCountry, currentPage = '' } = Astro.props;
+
+// Define the base URL structure for each country
+const baseUrls = {
+  us: 'https://seowebster.com',
+  lk: 'https://seowebster.com/lk', 
+  au: 'https://seowebster.com/au'
+};
+
+// Generate alternate URLs for the same page across different countries
+const alternateUrls = {
+  us: `${baseUrls.us}${currentPage}`,
+  lk: `${baseUrls.lk}${currentPage}`,
+  au: `${baseUrls.au}${currentPage}`
+};
+
+// Language and region codes
+const langRegions = {
+  us: 'en-US',
+  lk: 'en-LK', 
+  au: 'en-AU'
+};
+---
+
+<!-- Hreflang tags for international SEO -->
+<link rel="alternate" hreflang="en-US" href={alternateUrls.us} />
+<link rel="alternate" hreflang="en-LK" href={alternateUrls.lk} />
+<link rel="alternate" hreflang="en-AU" href={alternateUrls.au} />
+<link rel="alternate" hreflang="x-default" href={alternateUrls.us} />
+
+<!-- Canonical URL for current page -->
+<link rel="canonical" href={alternateUrls[currentCountry]} />
+
+<!-- Open Graph locale alternates -->
+<meta property="og:locale" content={langRegions[currentCountry]} />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="en_LK" />
+<meta property="og:locale:alternate" content="en_AU" />

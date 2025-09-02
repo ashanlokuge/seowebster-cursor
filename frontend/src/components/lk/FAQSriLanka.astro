@@ -1,0 +1,176 @@
+---
+const faqs = [
+  {
+    question: "What is SEO and why does my Sri Lankan business need it?",
+    answer: "SEO stands for Search Engine Optimization. It helps improve your website's visibility on search engines like Google, driving more organic traffic and potential customers to your Sri Lankan business. With 70% of Sri Lankans using mobile internet, SEO is crucial for online success."
+  },
+  {
+    question: "How long does it take to see SEO results in Sri Lanka?",
+    answer: "SEO is a long-term strategy. Most Sri Lankan clients begin seeing measurable improvements within 3–6 months, depending on competition and the site's condition. Local SEO results can appear faster, often within 2-3 months."
+  },
+  {
+    question: "Do you optimize content for Sinhala and Tamil languages?",
+    answer: "Yes! We specialize in multi-language SEO optimization for Sinhala, Tamil, and English content. This helps you reach all segments of the Sri Lankan market and improve your visibility across different language searches."
+  },
+  {
+    question: "Can you guarantee first-page rankings for Sri Lankan keywords?",
+    answer: "No ethical SEO agency can guarantee rankings. However, we follow best practices and have a proven track record with 178+ Sri Lankan businesses, significantly improving visibility and traffic over time."
+  },
+  {
+    question: "How do you measure SEO success for Sri Lankan businesses?",
+    answer: "We use tools like Google Analytics, Search Console, and keyword tracking software to monitor traffic, rankings, and conversions specifically for the Sri Lankan market, including local search performance and multi-language tracking."
+  },
+  {
+    question: "Do you provide regular performance reports for LK businesses?",
+    answer: "Yes, we provide detailed monthly reports showing your SEO progress, local rankings, traffic growth, and ROI specifically for the Sri Lankan market, including local search performance and conversion metrics."
+  }
+];
+---
+
+<section class="bg-gray-50 py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#272d3e] mb-4 leading-tight">
+        Frequently Asked Questions - Sri Lanka
+      </h2>
+      <p class="text-lg lg:text-xl text-[#6B7280] max-w-2xl mx-auto">
+        Get answers to common questions about our SEO services and how we can help grow your Sri Lankan business
+      </p>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      {faqs.map((faq, index) => (
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100" style="min-height: 120px;">
+          <div class="p-6 lg:p-8">
+            <div class="flex items-start justify-between">
+              <div class="flex-1 pr-4">
+                <h3 class="text-lg lg:text-xl font-semibold text-[#272d3e] leading-relaxed mb-3">
+                  {faq.question}
+                </h3>
+                
+                <div 
+                  id={`faq-answer-lk-${index}`}
+                  class="faq-answer-lk overflow-hidden transition-all duration-300 ease-in-out"
+                  style="max-height: 0; opacity: 0;"
+                >
+                  <p class="text-[#6B7280] text-base lg:text-lg leading-relaxed pt-2 pb-2">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex-shrink-0 ml-4">
+                <button 
+                  class="w-8 h-8 bg-[#F57A18] bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#F57A18] focus:ring-opacity-20"
+                  onclick={`toggleFAQLK(${index})`}
+                  aria-expanded="false"
+                  aria-controls={`faq-answer-lk-${index}`}
+                >
+                  <svg 
+                    class="w-5 h-5 text-[#F57A18] transform transition-transform duration-300 faq-icon-lk"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12 lg:mt-16">
+      <div class="bg-gradient-to-r from-[#F57A18] to-[#E06A15] rounded-2xl p-8 lg:p-10 shadow-xl">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Still have questions about SEO in Sri Lanka?
+        </h3>
+        <p class="text-white text-opacity-90 text-lg mb-6 max-w-2xl mx-auto">
+          Our Sri Lankan SEO experts are here to help you understand how we can improve your search rankings and drive more traffic to your website in the LK market.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/lk/contact" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-[#F57A18] font-semibold rounded-lg hover:bg-gray-50 transform transition-all duration-200 hover:scale-105 shadow-md"
+          >
+            Get Free Sri Lanka Consultation
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a 
+            href="/lk/seo-services" 
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#F57A18] transform transition-all duration-200"
+          >
+            View Our LK Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Global function to toggle FAQ
+  (window as any).toggleFAQLK = function(index: number) {
+    const button = document.querySelector(`[onclick="toggleFAQLK(${index})"]`) as HTMLElement;
+    const answer = document.getElementById(`faq-answer-lk-${index}`) as HTMLElement;
+    const icon = button?.querySelector('.faq-icon-lk') as HTMLElement;
+    
+    if (!button || !answer || !icon) return;
+    
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle current FAQ
+    if (isExpanded) {
+      button.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = '0px';
+      answer.style.opacity = '0';
+      answer.style.paddingTop = '0px';
+      answer.style.paddingBottom = '0px';
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />';
+    } else {
+      button.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.opacity = '1';
+      answer.style.paddingTop = '8px';
+      answer.style.paddingBottom = '8px';
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />';
+    }
+  };
+  
+  // Initialize FAQ states
+  document.addEventListener('DOMContentLoaded', function() {
+    // All FAQs start collapsed
+    const faqButtons = document.querySelectorAll('[onclick^="toggleFAQLK"]');
+    faqButtons.forEach((button, index) => {
+      if (button instanceof HTMLElement) {
+        button.setAttribute('aria-expanded', 'false');
+        const answer = document.getElementById(`faq-answer-lk-${index}`);
+        if (answer instanceof HTMLElement) {
+          answer.style.maxHeight = '0px';
+          answer.style.opacity = '0';
+          answer.style.paddingTop = '0px';
+          answer.style.paddingBottom = '0px';
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-icon-lk {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .faq-answer-lk {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
